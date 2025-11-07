@@ -65,35 +65,6 @@
             display: block; 
         }
 
-        /* ******************************************************* */
-        /* 👇 [अपडेटेड CSS] छोटी इमेजेज़ के लिए स्टाइल और मार्जिन 👇 */
-        .small-images-container {
-            display: flex; /* इमेजेज़ को एक लाइन में दिखाने के लिए */
-            justify-content: space-around; /* इमेजेज़ के बीच जगह बनाने के लिए */
-            align-items: flex-start; /* इमेजेज़ को ऊपर से align करने के लिए */
-            width: 90%; /* कंटेनर की चौड़ाई */
-            max-width: 600px; /* अधिकतम चौड़ाई */
-            /* मार्जिन एडजस्ट किया गया: ऊपर 20px, नीचे 20px */
-            margin: 20px auto 20px auto; 
-            padding: 0 10px;
-        }
-
-        .small-image {
-            width: 30%; /* प्रत्येक इमेज को लगभग 30% चौड़ाई मिलेगी */
-            max-width: 180px; /* अधिकतम चौड़ाई सीमित करें */
-            height: auto;
-            border-radius: 8px; /* किनारों को थोड़ा गोल करने के लिए */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* हल्का शैडो */
-            transition: transform 0.3s;
-        }
-        
-        .small-image:hover {
-            transform: scale(1.05); /* माउस ओवर पर हल्का ज़ूम */
-        }
-        /* 👆 [अपडेटेड CSS] छोटी इमेजेज़ के लिए स्टाइल और मार्जिन 👆 */
-        /* ******************************************************* */
-
-
         /* बटन को स्थिर (Fixed) करने वाला रैपर */
         .fixed-button-wrapper {
             position: fixed; 
@@ -147,8 +118,7 @@
             padding: 30px 10px; 
             text-align: center;
             font-size: 16px;
-            /* Footer को इमेजेज़ के ठीक नीचे लाने के लिए मार्जिन एडजस्ट किया गया */
-            margin-top: 0px; 
+            margin-top: -1px; 
         }
         
         /* Footer Content and Links (No change) */
@@ -217,8 +187,8 @@
             
             /* Download Button adjustment for mobile */
             .download-button {
-                font-size: 18px; /* बटन टेक्स्ट और छोटा */
-                padding: 10px 20px; /* पैडिंग कम */
+                font-size: 20px; 
+                padding: 12px 25px; 
                 gap: 8px;
                 box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); 
             }
@@ -226,19 +196,14 @@
                  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
             }
             .download-button i {
-                 font-size: 20px; /* आइकन छोटा */
+                 font-size: 22px;
             }
             
             /* फिक्स्ड बटन को मोबाइल पर स्क्रीन के नीचे से और ऊपर रखा गया */
             .fixed-button-wrapper {
-                bottom: 20px; 
+                bottom: 50px; 
             }
             
-            /* छोटी इमेजेज़ कंटेनर मार्जिन एडजस्टमेंट */
-            .small-images-container {
-                 margin: 20px auto 10px auto; /* मोबाइल पर नीचे का मार्जिन और कम किया गया */
-            }
-
             /* Mobile Text Wrapping Final Fix */
             .footer-content {
                 text-align: center; 
@@ -290,13 +255,7 @@
     <div class="main-content">
         <h1 class="app-title">Milk Scale App Official Download Page</h1>
         <div class="background-image"></div>
-        
-        <div class="small-images-container">
-            <img src="small-image-1.png" alt="ऐप फीचर 1" class="small-image">
-            <img src="small-image-2.png" alt="ऐप फीचर 2" class="small-image">
-            <img src="small-image-3.png" alt="ऐप फीचर 3" class="small-image">
-        </div>
-        </div>
+    </div>
     
     <div class="fixed-button-wrapper">
         <a href="https://raw.githubusercontent.com/nak518000-hash/MilkScaleApp.apk/main/MilkScaleApp.apk" 

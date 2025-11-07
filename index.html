@@ -54,7 +54,9 @@
             width: 100%;
             background-image: url('main-background.jpg?v=07112025'); 
             
-            background-size: contain; 
+            /* **✅ बदलाव: खाली जगह हटाने के लिए COVER का उपयोग** */
+            background-size: cover; 
+            
             background-position: center center;
             background-repeat: no-repeat;
             
@@ -63,7 +65,7 @@
             margin-bottom: 0; 
         }
         
-        /* 🟢 दूसरी फुल-स्क्रीन इमेज के लिए CSS */
+        /* 🟢 दूसरी फुल-स्क्रीन इमेज के लिए CSS (contain रखा गया है, जैसा आपने कहा था) */
         .second-image {
             width: 100%;
             height: 65vh; 
@@ -71,7 +73,6 @@
             background-position: center center;
             background-repeat: no-repeat;
             
-            /* **✅ फिक्स: सभी छोटे अक्षर (lowercase) में फ़ाइल का नाम** */
             background-image: url('second-full-screen-image.jpg'); 
             
             display: block;

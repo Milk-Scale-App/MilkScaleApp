@@ -38,6 +38,7 @@
             position: relative;
             text-align: center;
             height: auto; 
+            /* खाली जगह हटाने के लिए padding-bottom हटा दिया गया */
         }
         
         /* 🟢 H1 हेडिंग के लिए स्टाइल */
@@ -50,35 +51,29 @@
             text-align: center;
         }
 
-        /* ******************************************************* */
-        /* 👇 खाली जगह खत्म करने के लिए बदलाव (Desktop Default) 👇 */
         .background-image {
             width: 100%;
             background-image: url('main-background.jpg?v=07112025'); 
-            background-size: contain; 
+            background-size: contain; /* इमेज को कंटेन करें */
             background-position: top center;
             background-repeat: no-repeat;
-            
-            /* डेस्कटॉप के लिए Aspect Ratio सेट किया गया (खाली जगह कम करने के लिए) */
-            height: 0; 
-            padding-top: 110%; /* डेस्कटॉप पर 110% ऊँचाई चौड़ाई के सापेक्ष */
+            /* हाइट को कम किया गया ताकि खाली जगह कम हो जाए */
+            height: 50vh; 
             display: block; 
         }
 
         /* बटन को स्थिर (Fixed) करने वाला रैपर */
         .fixed-button-wrapper {
             position: fixed; 
-            /* बटन को नीचे से स्थिर दूरी पर रखा गया */
-            bottom: 50px;    
+            bottom: 15vh;    /* बटन को बॉटम से ऊपर रखें */
             left: 50%;
-            transform: translateX(-50%); 
+            transform: translateX(-50%); /* बटन को सेंटर करें */
             z-index: 1000;   
         }
-        /* ******************************************************* */
 
         /* Download Button Style */
         .download-button {
-            background-color: #28a745; 
+            background-color: #28a745; /* हरा रंग */
             color: white;
             padding: 18px 50px;
             border-radius: 10px;
@@ -118,10 +113,11 @@
             padding: 30px 10px; 
             text-align: center;
             font-size: 16px;
+            /* फुटर को इमेज के पास लाने के लिए नेगेटिव मार्जिन (जरूरत पड़ने पर) */
             margin-top: -1px; 
         }
         
-        /* Footer Content and Links (No change) */
+        /* Footer Content: Master container */
         .footer-content {
             max-width: 700px;
             width: 100%; 
@@ -133,13 +129,14 @@
         }
 
         .footer-content a {
-            color: #ffcc00; 
+            color: #ffcc00; /* गोल्डन/पीला रंग लिंक्स के लिए */
             text-decoration: underline;
             font-weight: bold;
             word-break: break-all;
             overflow-wrap: break-word; 
         }
         
+        /* Footer Paragraph Text Styling */
         .footer-content p {
             margin: 0; 
             padding: 0; 
@@ -149,6 +146,7 @@
             text-align: center;
         }
 
+        /* Links container */
         .footer-links {
             display: flex;
             flex-direction: column;
@@ -159,6 +157,7 @@
             padding: 0 5px; 
         }
         
+        /* Link styling for your requested format */
         .footer-links div {
             text-align: center; 
             word-break: break-word; 
@@ -178,12 +177,10 @@
                 padding-top: 10px;
             }
             
-            /* ******************************************************* */
-            /* 👇 मोबाइल पर Aspect Ratio सेट किया गया 👇 */
+            /* मोबाइल पर इमेज की ऊँचाई को और कम किया गया (40vh) */
             .background-image {
-                padding-top: 170%; /* मोबाइल पर 170% ऊँचाई चौड़ाई के सापेक्ष */
+                height: 40vh; 
             }
-            /* ******************************************************* */
             
             /* Download Button adjustment for mobile */
             .download-button {
@@ -237,6 +234,7 @@
                 margin-bottom: 15px !important;
             }
             
+
             .footer-links {
                 align-items: center;
                 max-width: 95%; 

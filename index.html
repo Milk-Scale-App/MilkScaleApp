@@ -43,8 +43,9 @@
         /* 🟢 H1 हेडिंग के लिए स्टाइल */
         .app-title {
             color: white;
-            font-size: 24px;
-            padding: 15px 10px 0;
+            /* 💡 साइज़ बड़ा रखा गया है */
+            font-size: 30px; 
+            padding: 20px 10px 0;
             margin: 0;
             font-weight: bold;
             text-align: center;
@@ -52,23 +53,21 @@
 
         .background-image {
             width: 100%;
-            /* 💡 यदि कैशिंग की समस्या हो तो 'v' की वैल्यू बदलें */
             background-image: url('main-background.jpg?v=07112025'); 
-            /* 👇 **मुख्य बदलाव:** इमेज को चौड़ाई में फुल स्क्रीन पर फैलाता है */
             background-size: cover; 
             background-position: top center;
             background-repeat: no-repeat;
-            /* **हाइट** वही रखी गई है */
             height: 45vh; 
             display: block; 
         }
 
-        /* 🟢 शॉर्ट इमेजेस कंटेनर के लिए CSS (नया जोड़ा गया) */
+        /* 🟢 शॉर्ट इमेजेस कंटेनर के लिए CSS (साइज़ बड़ा किया गया) */
         .short-images-container {
             display: flex; 
             justify-content: center; 
-            gap: 15px; 
-            padding: 15px 10px; 
+            /* 💡 गैप बड़ा किया गया */
+            gap: 20px; 
+            padding: 20px 10px; 
             background-color: #1956a8; 
             width: 100%;
             margin-top: -5px; 
@@ -76,54 +75,59 @@
         
         .short-image {
             width: 30%; 
-            max-width: 180px; 
+            /* 💡 मैक्स-चौड़ाई को बढ़ाया गया ताकि इमेज बड़ी दिखे */
+            max-width: 250px; 
             height: auto;
-            border-radius: 10px; 
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); 
+            border-radius: 12px; 
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); 
             display: block; 
             object-fit: cover; 
+            /* 👇 अगर फिर भी ज़ूम हो, तो इसे जोड़ सकते हैं */
+            touch-action: manipulation; 
         }
-        /* 🟢 शॉर्ट इमेजेस कंटेनर के लिए CSS (नया जोड़ा गया) यहाँ समाप्त होता है */
 
 
         /* बटन को स्थिर (Fixed) करने वाला रैपर */
         .fixed-button-wrapper {
             position: fixed; 
-            /* इसे थोड़ा ऊपर किया गया ताकि यह फुल-साइज कंटेंट में भी ठीक दिखे */
-            bottom: 25vh;    
+            /* बटन को ऊपर की तरफ़ थोड़ा और एडजस्ट किया गया */
+            bottom: 30vh;    
             left: 50%;
             transform: translateX(-50%); 
             z-index: 1000;   
         }
 
-        /* Download Button Style */
+        /* Download Button Style (साइज़ बड़ा किया गया) */
         .download-button {
             background-color: #28a745; 
             color: white;
-            padding: 18px 50px;
-            border-radius: 10px;
+            /* 💡 पैडिंग बढ़ाई गई ताकि बटन बड़ा दिखे */
+            padding: 20px 60px; 
+            border-radius: 12px;
             text-decoration: none;
-            font-size: 26px; 
+            /* 💡 फ़ॉन्ट साइज़ बढ़ाया गया */
+            font-size: 30px; 
             font-weight: bold;
             display: flex;
             align-items: center;
-            gap: 15px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+            gap: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
             transition: background-color 0.3s, transform 0.1s;
             white-space: nowrap;
         }
         .download-button:hover {
             background-color: #218838;
             transform: translateY(-2px); 
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6);
         }
         .download-button:active {
             background-color: #1e7e34;
             transform: translateY(0); 
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
         }
         .download-button i {
-            font-size: 28px;
+            /* 💡 आइकॉन साइज़ बढ़ाया गया */
+            font-size: 35px;
         }
 
         /* Blue Footer Section */
@@ -137,19 +141,20 @@
             align-items: center;
             padding: 30px 10px; 
             text-align: center;
-            font-size: 16px;
+            /* 💡 फ़ॉन्ट साइज़ बढ़ाया गया */
+            font-size: 18px; 
             margin-top: -1px; 
         }
         
         /* Footer Content: Master container */
         .footer-content {
-            max-width: 700px;
+            max-width: 800px;
             width: 100%; 
-            line-height: 1.5; 
+            line-height: 1.6; 
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 20px; 
+            gap: 25px; 
         }
 
         .footer-content a {
@@ -175,9 +180,9 @@
             display: flex;
             flex-direction: column;
             align-items: center; 
-            gap: 8px;
+            gap: 10px;
             width: 100%; 
-            max-width: 400px; 
+            max-width: 500px; 
             padding: 0 5px; 
         }
         
@@ -187,13 +192,10 @@
             word-break: break-word; 
             overflow-wrap: break-word;
             width: 100%;
-            line-height: 1.3;
+            line-height: 1.4;
         }
 
-        /* ======================================================= */
-        /* MEDIA QUERY FOR MOBILE DEVICES (<= 767px) - ENTIRELY REMOVED */
-        /* ======================================================= */
-        /* @media (max-width: 767px) { ... } ब्लॉक को पूरी तरह से हटा दिया गया है */
+        /* ⚠️ Media Query को पूरी तरह से हटा दिया गया है */
 
     </style>
 </head>
@@ -224,7 +226,7 @@
     <div class="footer-section">
         <div class="footer-content">
             
-            <p style="font-size: 14px; text-align: center; margin-bottom: 20px; padding: 0 5px; line-height: 1.5;">
+            <p style="font-size: 18px; text-align: center; margin-bottom: 25px; padding: 0 10px; line-height: 1.5;">
                 यह **Milk Scale App** विशेष रूप से दूध के व्यवसाय को आसान बनाने के लिए बनाया गया है। 
                 यह **दूध स्केल** का उपयोग करके **दूध और सैंपल की वैल्यू** से तुरंत **इंक्रीमेंट** निकालता है। 
                 यह **Milk Scale App** कोई हिसाब स्टोर नहीं करता है, बल्कि सिर्फ़ सही वैल्यू की गणना करता है।
@@ -232,17 +234,17 @@
             </p>
             <div class="main-text">
                 
-                <p class="line-fix">यदि App Download नहीं हो रहा है, तो आप हमें संपर्क करें:</p>
+                <p class="line-fix" style="margin-bottom: 10px;">यदि App Download नहीं हो रहा है, तो आप हमें संपर्क करें:</p>
                 
-                <p class="line-fix">आप हमें **Email** कर सकते हैं या **Telegram/WhatsApp Group** में</p>
+                <p class="line-fix" style="margin-bottom: 5px;">आप हमें **Email** कर सकते हैं या **Telegram/WhatsApp Group** में</p>
                 
-                <p class="line-fix">**Direct Message** के माध्यम से अपनी समस्या बता सकते हैं।</p>
+                <p class="line-fix" style="margin-bottom: 5px;">**Direct Message** के माध्यम से अपनी समस्या बता सकते हैं।</p>
                 
                 <p class="line-fix">आपकी समस्या का समाधान **तुरंत** किया जाएगा।</p>
                 
             </div>
             
-            <hr style="border-color: rgba(255, 255, 255, 0.3); width: 80%; margin: 15px auto;">
+            <hr style="border-color: rgba(255, 255, 255, 0.3); width: 80%; margin: 20px auto;">
 
             <div class="footer-links">
                 <div>

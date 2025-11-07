@@ -38,7 +38,6 @@
             position: relative;
             text-align: center;
             height: auto; 
-            /* खाली जगह हटाने के लिए padding-bottom हटा दिया गया */
         }
         
         /* 🟢 H1 हेडिंग के लिए स्टाइल */
@@ -52,34 +51,34 @@
         }
 
         /* ******************************************************* */
-        /* 👇 खाली जगह खत्म करने के लिए बदलाव 👇 */
+        /* 👇 खाली जगह खत्म करने के लिए बदलाव (Desktop Default) 👇 */
         .background-image {
             width: 100%;
             background-image: url('main-background.jpg?v=07112025'); 
-            background-size: contain; /* इमेज को कंटेन करें */
+            background-size: contain; 
             background-position: top center;
             background-repeat: no-repeat;
             
-            /* हाइट को 0 किया और padding-top से aspect ratio बनाए रखा */
+            /* डेस्कटॉप के लिए Aspect Ratio सेट किया गया (खाली जगह कम करने के लिए) */
             height: 0; 
-            padding-top: 130%; /* यह वैल्यू आपके इमेज के aspect ratio पर निर्भर करेगी */
+            padding-top: 110%; /* डेस्कटॉप पर 110% ऊँचाई चौड़ाई के सापेक्ष */
             display: block; 
         }
 
         /* बटन को स्थिर (Fixed) करने वाला रैपर */
         .fixed-button-wrapper {
             position: fixed; 
-            /* बॉटम वैल्यू को स्थिर (Fixed) रखा ताकि डेस्कटॉप पर भी कम खाली जगह रहे */
+            /* बटन को नीचे से स्थिर दूरी पर रखा गया */
             bottom: 50px;    
             left: 50%;
-            transform: translateX(-50%); /* बटन को सेंटर करें */
+            transform: translateX(-50%); 
             z-index: 1000;   
         }
         /* ******************************************************* */
 
         /* Download Button Style */
         .download-button {
-            background-color: #28a745; /* हरा रंग */
+            background-color: #28a745; 
             color: white;
             padding: 18px 50px;
             border-radius: 10px;
@@ -119,11 +118,10 @@
             padding: 30px 10px; 
             text-align: center;
             font-size: 16px;
-            /* फुटर को इमेज के पास लाने के लिए नेगेटिव मार्जिन (जरूरत पड़ने पर) */
             margin-top: -1px; 
         }
         
-        /* Footer Content: Master container */
+        /* Footer Content and Links (No change) */
         .footer-content {
             max-width: 700px;
             width: 100%; 
@@ -135,14 +133,13 @@
         }
 
         .footer-content a {
-            color: #ffcc00; /* गोल्डन/पीला रंग लिंक्स के लिए */
+            color: #ffcc00; 
             text-decoration: underline;
             font-weight: bold;
             word-break: break-all;
             overflow-wrap: break-word; 
         }
         
-        /* Footer Paragraph Text Styling */
         .footer-content p {
             margin: 0; 
             padding: 0; 
@@ -152,7 +149,6 @@
             text-align: center;
         }
 
-        /* Links container */
         .footer-links {
             display: flex;
             flex-direction: column;
@@ -163,7 +159,6 @@
             padding: 0 5px; 
         }
         
-        /* Link styling for your requested format */
         .footer-links div {
             text-align: center; 
             word-break: break-word; 
@@ -184,9 +179,9 @@
             }
             
             /* ******************************************************* */
-            /* 👇 मोबाइल पर इमेज की ऊँचाई (Aspect Ratio) सेट की गई 👇 */
+            /* 👇 मोबाइल पर Aspect Ratio सेट किया गया 👇 */
             .background-image {
-                padding-top: 160%; /* मोबाइल पर 160% का Aspect Ratio अधिक बेहतर दिखना चाहिए */
+                padding-top: 170%; /* मोबाइल पर 170% ऊँचाई चौड़ाई के सापेक्ष */
             }
             /* ******************************************************* */
             
@@ -242,7 +237,6 @@
                 margin-bottom: 15px !important;
             }
             
-
             .footer-links {
                 align-items: center;
                 max-width: 95%; 

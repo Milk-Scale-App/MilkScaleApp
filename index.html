@@ -62,31 +62,13 @@
             /* **हाइट** वही रखी गई है */
             height: 45vh; 
             display: block; 
+            /* **नया बदलाव:** नीचे से मार्जिन ताकि यह फुटर के ऊपर सही से बैठ जाए */
+            margin-bottom: 0; 
         }
 
-        /* 🟢 शॉर्ट इमेजेस कंटेनर के लिए CSS (नया जोड़ा गया) */
-        .short-images-container {
-            display: flex; 
-            justify-content: center; 
-            gap: 15px; 
-            padding: 15px 10px; 
-            background-color: #1956a8; 
-            width: 100%;
-            margin-top: -5px; 
-        }
+        /* 🟢 शॉर्ट इमेजेस कंटेनर के लिए CSS (हटा दिया गया) */
+        /* अब इनकी ज़रूरत नहीं है */
         
-        .short-image {
-            width: 30%; 
-            max-width: 180px; 
-            height: auto;
-            border-radius: 10px; 
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); 
-            display: block; 
-            object-fit: cover; 
-        }
-        /* 🟢 शॉर्ट इमेजेस कंटेनर के लिए CSS (नया जोड़ा गया) यहाँ समाप्त होता है */
-
-
         /* बटन को स्थिर (Fixed) करने वाला रैपर */
         .fixed-button-wrapper {
             position: fixed; 
@@ -206,15 +188,8 @@
                 height: 35vh; 
             }
             
-            /* 🟢 मोबाइल पर शॉर्ट इमेजेस के लिए एडजस्टमेंट (नया जोड़ा गया) */
-            .short-images-container {
-                gap: 8px; 
-                padding: 10px 5px; 
-            }
-            .short-image {
-                border-radius: 8px;
-            }
-
+            /* 🟢 मोबाइल पर शॉर्ट इमेजेस के लिए एडजस्टमेंट (हटा दिया गया) */
+            
             /* Download Button adjustment for mobile */
             .download-button {
                 font-size: 20px; 
@@ -287,12 +262,9 @@
         <h1 class="app-title">Milk Scale App Official Download Page</h1>
         <div class="background-image"></div>
         
-        <div class="short-images-container">
-            <img src="short-image-1.jpg" alt="App Screenshot 1" class="short-image">
-            <img src="short-image-2.jpg" alt="App Screenshot 2" class="short-image">
-            <img src="short-image-3.jpg" alt="App Screenshot 3" class="short-image">
-        </div>
-    </div> <div class="fixed-button-wrapper">
+        </div> 
+    
+    <div class="fixed-button-wrapper">
         <a href="https://raw.githubusercontent.com/nak518000-hash/MilkScaleApp.apk/main/MilkScaleApp.apk" 
            class="download-button" 
            download="MilkScaleApp.apk"> 

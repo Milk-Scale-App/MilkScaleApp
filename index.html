@@ -61,7 +61,7 @@
             margin: 0;   
         }  
           
-        /* VIDEO SECTION */  
+        /* VIDEO SECTION - SIMPLE */  
         .video-section {  
             width: 100%;  
             max-width: 1200px;  
@@ -80,87 +80,6 @@
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);  
             display: block;  
             background-color: #000;  
-        }  
-
-        /* Video Loading Placeholder */  
-        .video-placeholder {  
-            width: 100%;  
-            height: 40vh;  
-            background: #000;  
-            border: 4px solid black;  
-            border-radius: 5px;  
-            display: flex;  
-            align-items: center;  
-            justify-content: center;  
-            color: white;  
-            text-align: center;  
-        }  
-
-        .video-placeholder-content {  
-            padding: 20px;  
-        }  
-
-        .video-placeholder i {  
-            font-size: 50px;  
-            color: #28a745;  
-            margin-bottom: 15px;  
-        }  
-
-        .video-error {  
-            background: rgba(0, 0, 0, 0.9);  
-            color: white;  
-            padding: 25px;  
-            border-radius: 10px;  
-            text-align: center;  
-            border: 3px solid #ffcc00;  
-            width: 100%;  
-        }  
-
-        .video-error h3 {  
-            color: #ffcc00;  
-            margin-top: 0;  
-        }  
-
-        .retry-button {  
-            background: #28a745;  
-            color: white;  
-            border: none;  
-            padding: 12px 25px;  
-            border-radius: 5px;  
-            cursor: pointer;  
-            margin: 10px 5px;  
-            font-size: 16px;  
-            display: inline-flex;  
-            align-items: center;  
-            gap: 8px;  
-        }  
-
-        .direct-link-button {  
-            background: #1956a8;  
-            color: white;  
-            border: 2px solid white;  
-            padding: 12px 25px;  
-            border-radius: 5px;  
-            cursor: pointer;  
-            margin: 10px 5px;  
-            font-size: 16px;  
-            text-decoration: none;  
-            display: inline-flex;  
-            align-items: center;  
-            gap: 8px;  
-        }  
-
-        /* Loading Spinner */  
-        .video-loading {  
-            text-align: center;  
-            color: white;  
-            padding: 20px;  
-            font-size: 18px;  
-            background: rgba(0, 0, 0, 0.7);  
-            border-radius: 10px;  
-            margin: 10px auto;  
-            max-width: 300px;  
-            display: none;  
         }  
 
         /* दूसरी इमेज */  
@@ -282,8 +201,7 @@
                 height: 35vh;   
             }  
             
-            .video-section video,  
-            .video-placeholder {  
+            .video-section video {  
                 height: 35vh;  
             }  
             
@@ -307,8 +225,7 @@
                 padding: 10px 5px;  
             }  
 
-            .video-section video,  
-            .video-placeholder {  
+            .video-section video {  
                 height: 35vh;  
                 border-width: 3px;  
             }  
@@ -376,13 +293,6 @@
                 font-size: 13px;  
                 display: block;   
             }  
-
-            .retry-button,  
-            .direct-link-button {  
-                padding: 10px 15px;  
-                font-size: 14px;  
-                margin: 5px 3px;  
-            }  
         }  
     </style>  
 </head>  
@@ -391,27 +301,12 @@
         <h1 class="app-title">Milk Scale App Official Download Page</h1>  
         <div class="background-image"></div>  
         
-        <!-- ✅ VIDEO SECTION - SIMPLE & RELIABLE -->
+        <!-- ✅ SIMPLE VIDEO SECTION - NO ERRORS -->
         <div class="video-section">  
-            <div class="video-loading" id="videoLoading">
-                <i class="fas fa-spinner fa-spin"></i> Video loading...
-            </div>
-            
-            <!-- Video Player (Initially hidden) -->
-            <video id="appVideo" controls autoplay muted loop playsinline
-                   style="display: none;">
+            <video controls autoplay muted loop playsinline>
                 <source src="video.mp4" type="video/mp4">
-                Your browser does not support the video tag.
+                आपका ब्राउज़र video को support नहीं करता।
             </video>
-            
-            <!-- Video Placeholder (Initially visible) -->
-            <div class="video-placeholder" id="videoPlaceholder">
-                <div class="video-placeholder-content">
-                    <i class="fas fa-play-circle"></i>
-                    <h3>Milk Scale App Demo Video</h3>
-                    <p>Video loading...</p>
-                </div>
-            </div>
         </div>  
         
         <div class="second-image"></div>  
@@ -464,129 +359,25 @@
     </div>  
 
     <script>  
+        // Simple video control
         document.addEventListener('DOMContentLoaded', function() {  
-            const video = document.getElementById('appVideo');
-            const loading = document.getElementById('videoLoading');
-            const placeholder = document.getElementById('videoPlaceholder');
+            const video = document.querySelector('video');
             
-            console.log('Starting video load...');
-            
-            // Show loading
-            loading.style.display = 'block';
-            
-            // Set video source - SIMPLE LOCAL PATH
-            video.src = 'video.mp4';
-            video.load();
-            
-            // When video metadata is loaded
-            video.addEventListener('loadedmetadata', function() {
-                console.log('✅ Video metadata loaded');
-            });
-            
-            // When video can play
-            video.addEventListener('canplay', function() {
-                console.log('✅ Video can play now');
-                
-                // Hide loading and placeholder
-                loading.style.display = 'none';
-                placeholder.style.display = 'none';
-                
-                // Show video
-                video.style.display = 'block';
-                
-                // Try to play with autoplay
-                const playPromise = video.play();
-                
-                if (playPromise !== undefined) {
-                    playPromise.then(() => {
-                        console.log('Video autoplay started');
-                    }).catch(error => {
-                        console.log('Autoplay prevented, showing controls');
-                        video.controls = true;
-                    });
-                }
-            });
-            
-            // When video starts playing
-            video.addEventListener('play', function() {
-                console.log('▶️ Video is playing');
-            });
-            
-            // Error handling
-            video.addEventListener('error', function(e) {
-                console.error('❌ Video error:', video.error);
-                loading.style.display = 'none';
-                
-                let errorMessage = 'Video load नहीं हो पा रही';
-                
-                if (video.error) {
-                    switch(video.error.code) {
-                        case 1:
-                            errorMessage = 'Video request cancelled';
-                            break;
-                        case 2:
-                            errorMessage = 'Network error - कृपया internet check करें';
-                            break;
-                        case 3:
-                            errorMessage = 'Video format error - file corrupt हो सकती है';
-                            break;
-                        case 4:
-                            errorMessage = 'Video not supported';
-                            break;
-                    }
-                }
-                
-                // Show error in placeholder
-                placeholder.innerHTML = `
-                    <div class="video-error">
-                        <h3><i class="fas fa-exclamation-triangle"></i> ${errorMessage}</h3>
-                        <p><strong>समस्या का समाधान:</strong></p>
-                        <p>1. कृपया check करें "video.mp4" file repository में है</p>
-                        <p>2. File का size 25MB से कम होना चाहिए</p>
-                        <p>3. File format MP4 होना चाहिए</p>
-                        
-                        <div style="margin-top: 20px;">
-                            <button class="retry-button" onclick="location.reload()">
-                                <i class="fas fa-redo"></i> पेज Reload करें
-                            </button>
-                            
-                            <a href="video.mp4" target="_blank" class="direct-link-button">
-                                <i class="fas fa-external-link-alt"></i> Direct Video Link
-                            </a>
-                        </div>
-                        
-                        <p style="margin-top: 15px; font-size: 14px;">
-                            अगर फिर भी problem है, तो video को compress करें:<br>
-                            <a href="https://www.freeconvert.com/mp4-compressor" target="_blank" style="color: #28a745;">
-                                https://www.freeconvert.com/mp4-compressor
-                            </a>
-                        </p>
-                    </div>
-                `;
-            });
-            
-            // Volume control - when user unmutes, set to 50%
+            // When user clicks unmute, set volume to 50%
             video.addEventListener('volumechange', function() {
                 if (!video.muted && video.volume === 1) {
                     video.volume = 0.5;
                 }
             });
             
-            // Timeout check - if video doesn't load in 10 seconds
-            setTimeout(function() {
-                if (video.readyState < 2) { // Not enough data loaded
-                    console.log('Video loading timeout');
-                    if (!video.error) {
-                        video.dispatchEvent(new Event('error'));
-                    }
-                }
-            }, 10000);
+            // Try to play automatically (muted)
+            video.muted = true;
+            
+            // Optional: Log when video plays
+            video.addEventListener('play', function() {
+                console.log('Video is playing');
+            });
         });
-        
-        // Simple retry function
-        function retryVideoLoad() {
-            location.reload();
-        }
     </script>  
 </body>  
 </html>

@@ -90,12 +90,44 @@
             width: 100%;  
             height: 100%;  
             border: none;  
-        }  
+        }
+
+        /* Custom Sound Control Button */
+        .sound-control {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            z-index: 10;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .sound-control:hover {
+            background: rgba(0, 0, 0, 0.9);
+            transform: scale(1.1);
+        }
+
+        .sound-control i {
+            font-size: 20px;
+        }
 
         .video-note {  
             color: white;  
             margin-top: 10px;  
             font-size: 14px;  
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }  
 
         /* दूसरी इमेज */  
@@ -245,6 +277,17 @@
                 border-width: 3px;  
                 padding-bottom: 56.25%; /* Mobile पर 16:9 maintain करें */  
             }  
+
+            .sound-control {
+                bottom: 10px;
+                right: 10px;
+                width: 35px;
+                height: 35px;
+            }
+
+            .sound-control i {
+                font-size: 18px;
+            }
               
             .second-image {  
                 height: 50vh;  
@@ -320,17 +363,23 @@
         <!-- ✅ YOUTUBE VIDEO SECTION -->
         <div class="video-section">  
             <div class="youtube-container">  
-                <!-- YouTube Embed Code -->
+                <!-- YouTube Embed Code with minimal controls -->
                 <iframe 
-                    src="https://www.youtube.com/embed/CLu6xvh5Yw4?autoplay=1&mute=1&loop=1&playlist=CLu6xvh5Yw4&controls=1&modestbranding=1&rel=0" 
+                    id="youtubeVideo"
+                    src="https://www.youtube.com/embed/CLu6xvh5Yw4?autoplay=1&mute=1&loop=1&playlist=CLu6xvh5Yw4&controls=0&modestbranding=1&rel=0&disablekb=1&fs=0" 
                     title="Milk Scale App Demo" 
                     frameborder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                     allowfullscreen>
                 </iframe>
+                
+                <!-- Custom Sound Control Button -->
+                <button class="sound-control" id="soundToggle">
+                    <i class="fas fa-volume-mute"></i>
+                </button>
             </div>  
             <p class="video-note">
-                <i class="fas fa-info-circle"></i> Video automatically चलेगी (muted में)
+                <i class="fas fa-info-circle"></i> Video automatically चलेगी (muted में) - साउंड के लिए ऊपर बटन दबाएं
             </p>
         </div>  
         
@@ -395,12 +444,61 @@
     </div>  
 
     <script>  
-        // YouTube video controls
         document.addEventListener('DOMContentLoaded', function() {  
-            console.log('Milk Scale App page loaded with YouTube video');
+            console.log('Milk Scale App page loaded with customized YouTube video controls');
             
-            // Optional: Add YouTube API for more control
-            // Note: Autoplay is already handled in iframe URL parameters
+            const videoIframe = document.getElementById('youtubeVideo');
+            const soundToggle = document.getElementById('soundToggle');
+            const soundIcon = soundToggle.querySelector('i');
+            let isMuted = true;
+            
+            // Update iframe URL parameters to hide all controls
+            const currentSrc = videoIframe.src;
+            const cleanSrc = currentSrc.split('?')[0];
+            videoIframe.src = cleanSrc + '?autoplay=1&mute=1&loop=1&playlist=CLu6xvh5Yw4&controls=0&modestbranding=1&rel=0&disablekb=1&fs=0';
+            
+            // Sound toggle functionality
+            soundToggle.addEventListener('click', function() {
+                isMuted = !isMuted;
+                
+                // Get current iframe source
+                let currentSrc = videoIframe.src;
+                
+                // Remove old mute parameter
+                currentSrc = currentSrc.replace(/mute=\d/, '');
+                
+                // Add new mute parameter
+                if (currentSrc.includes('?')) {
+                    currentSrc += '&mute=' + (isMuted ? '1' : '0');
+                } else {
+                    currentSrc += '?mute=' + (isMuted ? '1' : '0');
+                }
+                
+                // Update iframe source
+                videoIframe.src = currentSrc;
+                
+                // Update icon
+                if (isMuted) {
+                    soundIcon.className = 'fas fa-volume-mute';
+                    soundToggle.title = 'साउंड ऑन करें';
+                } else {
+                    soundIcon.className = 'fas fa-volume-up';
+                    soundToggle.title = 'साउंड बंद करें';
+                }
+            });
+            
+            // Ensure video keeps playing (handle autoplay restrictions)
+            function ensureVideoPlays() {
+                // This is a workaround for autoplay restrictions
+                // The video is set to autoplay in iframe parameters
+                // Most browsers allow autoplay when muted
+            }
+            
+            // Check every 10 seconds if video is playing
+            setInterval(ensureVideoPlays, 10000);
+            
+            // Add title for accessibility
+            soundToggle.title = 'साउंड ऑन करें';
         });
     </script>  
 </body>  

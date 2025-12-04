@@ -61,11 +61,12 @@
             margin: 0;   
         }  
           
-        /* YOUTUBE VIDEO SECTION */  
+        /* YOUTUBE VIDEO SECTION - HEIGHT INCREASED */
         .video-section {  
-            width: 90%;  
+            width: 100%;  
+            max-width: 1200px;  
             margin: 0 auto;  
-            padding: 10px 0;  
+            padding: 15px 10px;  
             background-color: #1956a8;  
             box-sizing: border-box;  
         }  
@@ -73,12 +74,12 @@
         .youtube-container {  
             position: relative;  
             width: 100%;  
-            padding-bottom: 56.25%;  
+            padding-bottom: 70%; /* HEIGHT बढ़ाई गई (56.25% से 70%) */
             height: 0;  
             overflow: hidden;  
-            border: 3px solid #000;  
-            border-radius: 8px;  
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 0, 0, 0.3) inset;  
+            border: 4px solid black;  
+            border-radius: 5px;  
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);  
             background: #000;  
         }  
 
@@ -89,6 +90,12 @@
             width: 100%;  
             height: 100%;  
             border: none;  
+        }  
+
+        .video-note {  
+            color: white;  
+            margin-top: 10px;  
+            font-size: 14px;  
         }  
 
         /* दूसरी इमेज */  
@@ -102,7 +109,7 @@
             display: block;  
             background-color: #1956a8;  
             padding: 0;   
-            margin: 5px 0 0 0;  
+            margin: 0;   
         }  
           
         /* Fixed Button */  
@@ -153,7 +160,7 @@
             display: flex;  
             justify-content: center;  
             align-items: center;  
-            padding: 0 15px 30px;  
+            padding: 0 10px 30px;   
             text-align: center;  
             font-size: 16px;  
             margin: 0;   
@@ -210,14 +217,12 @@
                 height: 35vh;   
             }  
             
-            .video-section {  
-                width: 85%;  
-                padding: 15px 0;  
-            }
+            .youtube-container {  
+                padding-bottom: 65%; /* Desktop पर भी height बढ़ाई */  
+            }  
             
             .second-image {  
-                height: 55vh;  
-                margin: 5px 0 0 0;  
+                height: 50vh;   
             }  
         }  
 
@@ -233,13 +238,18 @@
             }  
               
             .video-section {  
-                width: 95%;  
-                padding: 8px 0;  
+                padding: 10px 5px;  
+            }  
+
+            .youtube-container {  
+                border-width: 3px;  
+                padding-bottom: 70%; /* Mobile पर भी same height */  
             }  
               
             .second-image {  
                 height: 50vh;  
-                margin: 5px 0 0 0;  
+                padding: 0;   
+                margin: 0;  
             }  
               
             .download-button {  
@@ -247,6 +257,13 @@
                 padding: 12px 25px;   
                 gap: 8px;  
                 box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);   
+            }  
+            .download-button:hover {  
+                 box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);  
+            }  
+            .download-button:active {  
+                transform: translateY(0);   
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);  
             }  
               
             .fixed-button-wrapper {  
@@ -292,10 +309,6 @@
                 font-size: 13px;  
                 display: block;   
             }  
-            
-            .footer-section {  
-                padding: 0 10px 30px;  
-            }  
         }  
     </style>  
 </head>  
@@ -304,19 +317,21 @@
         <h1 class="app-title">Milk Scale App Official Download Page</h1>  
         <div class="background-image"></div>  
         
-        <!-- ✅ YOUTUBE VIDEO - NO CHANNEL INFO -->
+        <!-- ✅ YOUTUBE VIDEO SECTION -->
         <div class="video-section">  
             <div class="youtube-container">  
-                <!-- UPDATED: No channel info, immediate autoplay -->
+                <!-- YouTube Embed Code -->
                 <iframe 
-                    id="youtubeVideo"
-                    src="https://www.youtube-nocookie.com/embed/CLu6xvh5Yw4?autoplay=1&mute=0&loop=1&playlist=CLu6xvh5Yw4&controls=1&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&disablekb=1&fs=0&playsinline=1" 
+                    src="https://www.youtube.com/embed/CLu6xvh5Yw4?autoplay=1&mute=1&loop=1&playlist=CLu6xvh5Yw4&controls=1&modestbranding=1&rel=0" 
                     title="Milk Scale App Demo" 
                     frameborder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                     allowfullscreen>
                 </iframe>
             </div>  
+            <p class="video-note">
+                <i class="fas fa-info-circle"></i> Video automatically चलेगी (muted में)
+            </p>
         </div>  
         
         <div class="second-image"></div>  
@@ -365,182 +380,28 @@
                     **📣 Telegram chanel :** <a href="https://t.me/milkscaleapp" target="_blank">[https://t.me/milkscaleapp]</a>  
                 </div>  
             </div>  
+            
+            <!-- YouTube Link -->
+            <div style="margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.1); border-radius: 10px; width: 100%;">
+                <p>
+                    <i class="fab fa-youtube" style="color: #ff0000;"></i> 
+                    <strong>App Demo Video:</strong> 
+                    <a href="https://youtu.be/CLu6xvh5Yw4" target="_blank" style="color: #ffcc00;">
+                        https://youtu.be/CLu6xvh5Yw4
+                    </a>
+                </p>
+            </div>
         </div>  
     </div>  
 
-    <!-- YouTube IFrame API -->
-    <script src="https://www.youtube.com/iframe_api"></script>
-    
     <script>  
-        let player;
-        let autoPlayAttempted = false;
-        
-        function onYouTubeIframeAPIReady() {
-            player = new YT.Player('youtubeVideo', {
-                events: {
-                    'onReady': onPlayerReady,
-                    'onStateChange': onPlayerStateChange
-                }
-            });
-        }
-        
-        function onPlayerReady(event) {
-            console.log('YouTube Player Ready - Starting auto-play');
+        // YouTube video controls
+        document.addEventListener('DOMContentLoaded', function() {  
+            console.log('Milk Scale App page loaded with YouTube video');
             
-            // IMMEDIATE AUTO-PLAY ATTEMPT
-            setTimeout(function() {
-                try {
-                    event.target.playVideo();
-                    event.target.unMute();
-                    event.target.setVolume(100);
-                    autoPlayAttempted = true;
-                    console.log('Auto-play attempt 1');
-                } catch (e) {
-                    console.log('Auto-play failed:', e);
-                }
-            }, 100);
-            
-            // SECOND ATTEMPT AFTER 500ms
-            setTimeout(function() {
-                if (!autoPlayAttempted) {
-                    try {
-                        event.target.playVideo();
-                        event.target.unMute();
-                        event.target.setVolume(100);
-                        autoPlayAttempted = true;
-                        console.log('Auto-play attempt 2');
-                    } catch (e) {
-                        console.log('Auto-play failed:', e);
-                    }
-                }
-            }, 500);
-            
-            // THIRD ATTEMPT AFTER 1500ms
-            setTimeout(function() {
-                if (!autoPlayAttempted) {
-                    try {
-                        event.target.playVideo();
-                        event.target.unMute();
-                        event.target.setVolume(100);
-                        autoPlayAttempted = true;
-                        console.log('Auto-play attempt 3');
-                    } catch (e) {
-                        console.log('Auto-play failed:', e);
-                    }
-                }
-            }, 1500);
-            
-            // CONTINUOUS CHECK EVERY 2 SECONDS
-            setInterval(function() {
-                if (player && player.getPlayerState && player.getPlayerState() !== YT.PlayerState.PLAYING) {
-                    try {
-                        player.playVideo();
-                        player.unMute();
-                        player.setVolume(100);
-                        console.log('Auto-play retry');
-                    } catch (e) {
-                        // Ignore errors
-                    }
-                }
-            }, 2000);
-        }
-        
-        function onPlayerStateChange(event) {
-            // If video ends, restart it immediately
-            if (event.data === YT.PlayerState.ENDED) {
-                setTimeout(function() {
-                    player.playVideo();
-                    player.unMute();
-                    player.setVolume(100);
-                }, 100);
-            }
-            
-            // Log video state changes
-            if (event.data === YT.PlayerState.PLAYING) {
-                console.log('Video is now playing');
-            }
-        }
-        
-        // AUTO-PLAY ON PAGE LOAD WITH MULTIPLE STRATEGIES
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('Page loaded - Auto-play initialized');
-            
-            // STRATEGY 1: Simulate click on body after 200ms
-            setTimeout(function() {
-                try {
-                    document.body.click();
-                    console.log('Simulated click for auto-play');
-                } catch (e) {
-                    console.log('Click simulation failed');
-                }
-            }, 200);
-            
-            // STRATEGY 2: Trigger play on any user interaction
-            function triggerPlay() {
-                if (player && player.getPlayerState && player.getPlayerState() !== YT.PlayerState.PLAYING) {
-                    try {
-                        player.playVideo();
-                        player.unMute();
-                        player.setVolume(100);
-                        console.log('Play triggered by user interaction');
-                    } catch (e) {
-                        console.log('Play trigger failed');
-                    }
-                }
-            }
-            
-            document.addEventListener('click', triggerPlay);
-            document.addEventListener('touchstart', triggerPlay);
-            document.addEventListener('mousemove', triggerPlay);
-            document.addEventListener('keydown', triggerPlay);
-            
-            // STRATEGY 3: Force play after 3 seconds
-            setTimeout(function() {
-                if (player && player.getPlayerState && player.getPlayerState() !== YT.PlayerState.PLAYING) {
-                    try {
-                        player.playVideo();
-                        player.unMute();
-                        player.setVolume(100);
-                        console.log('Force play after 3 seconds');
-                    } catch (e) {
-                        console.log('Force play failed');
-                    }
-                }
-            }, 3000);
-        });
-        
-        // Handle page visibility changes
-        document.addEventListener('visibilitychange', function() {
-            if (!document.hidden) {
-                setTimeout(function() {
-                    if (player && player.getPlayerState && player.getPlayerState() !== YT.PlayerState.PLAYING) {
-                        try {
-                            player.playVideo();
-                            player.unMute();
-                            player.setVolume(100);
-                            console.log('Play on page visibility');
-                        } catch (e) {
-                            console.log('Visibility play failed');
-                        }
-                    }
-                }, 500);
-            }
-        });
-        
-        // Preload video for faster start
-        window.addEventListener('load', function() {
-            console.log('Window loaded - Video should start soon');
+            // Optional: Add YouTube API for more control
+            // Note: Autoplay is already handled in iframe URL parameters
         });
     </script>  
-    
-    <!-- Hidden button to trigger autoplay -->
-    <button id="hiddenTrigger" style="display: none; position: absolute; top: 0; left: 0; width: 1px; height: 1px; opacity: 0;" onclick="if(player) { player.playVideo(); player.unMute(); player.setVolume(100); }"></button>
-    
-    <script>
-        // Auto-click hidden button after page loads
-        setTimeout(function() {
-            document.getElementById('hiddenTrigger').click();
-        }, 100);
-    </script>
 </body>  
 </html>

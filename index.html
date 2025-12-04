@@ -28,7 +28,7 @@
             min-height: 100vh;  
             display: flex;  
             flex-direction: column;  
-            background-color: #1956a8; /* नीला बैकग्राउंड */  
+            background-color: #1956a8;  
         }  
           
         /* Main Content & Image */  
@@ -39,7 +39,7 @@
             height: auto;   
         }  
           
-        /* 🟢 H1 हेडिंग के लिए स्टाइल */  
+        /* H1 हेडिंग */  
         .app-title {  
             color: white;  
             font-size: 24px;  
@@ -61,7 +61,7 @@
             margin: 0;   
         }  
           
-        /* 🎥 NEW VIDEO SECTION STYLING */  
+        /* VIDEO SECTION */  
         .video-section {  
             width: 100%;  
             max-width: 1200px;  
@@ -73,16 +73,62 @@
 
         .video-section video {  
             width: 100%;  
-            height: 40vh; /* Main background image के equal height */  
-            object-fit: cover; /* Video को properly fit करने के लिए */  
-            border: 4px solid black; /* काला बॉर्डर */  
+            height: 40vh;  
+            object-fit: cover;  
+            border: 4px solid black;  
             border-radius: 5px;  
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);  
             display: block;  
-            background-color: #000; /* Video load होने से पहले black background */  
+            background-color: #000;  
         }  
 
-        /* 🟢 दूसरी फुल-स्क्रीन इमेज के लिए CSS */  
+        /* Video Error Message */  
+        .video-error {  
+            background: rgba(0, 0, 0, 0.9);  
+            color: white;  
+            padding: 25px;  
+            border-radius: 10px;  
+            text-align: center;  
+            margin: 0 auto;  
+            border: 3px solid #ffcc00;  
+            max-width: 90%;  
+        }  
+
+        .video-error h3 {  
+            color: #ffcc00;  
+            margin-top: 0;  
+        }  
+
+        .video-error a {  
+            color: #28a745;  
+            font-weight: bold;  
+            text-decoration: none;  
+            display: inline-block;  
+            margin: 15px 0;  
+            padding: 10px 20px;  
+            background: white;  
+            border-radius: 5px;  
+            border: 2px solid #28a745;  
+        }  
+
+        .video-error a:hover {  
+            background: #28a745;  
+            color: white;  
+        }  
+
+        /* Loading Indicator */  
+        #videoLoading {  
+            text-align: center;  
+            color: white;  
+            padding: 15px;  
+            font-size: 18px;  
+            background: rgba(0, 0, 0, 0.7);  
+            border-radius: 10px;  
+            margin: 10px auto;  
+            max-width: 300px;  
+        }  
+
+        /* दूसरी इमेज */  
         .second-image {  
             width: 100%;  
             height: 65vh;   
@@ -96,7 +142,7 @@
             margin: 0;   
         }  
           
-        /* बटन को स्थिर (Fixed) करने वाला रैपर */  
+        /* Fixed Button */  
         .fixed-button-wrapper {  
             position: fixed;   
             bottom: 15vh;      
@@ -105,7 +151,7 @@
             z-index: 1000;     
         }  
 
-        /* Download Button Style */  
+        /* Download Button */  
         .download-button {  
             background-color: #28a745;   
             color: white;  
@@ -135,7 +181,7 @@
             font-size: 28px;  
         }  
 
-        /* Blue Footer Section */  
+        /* Footer */  
         .footer-section {  
             width: 100%;  
             height: auto;   
@@ -150,7 +196,6 @@
             margin: 0;   
         }  
           
-        /* Footer Content: Master container */  
         .footer-content {  
             max-width: 700px;  
             width: 100%;   
@@ -169,7 +214,6 @@
             overflow-wrap: break-word;   
         }  
           
-        /* Footer Paragraph Text Styling */  
         .footer-content p {  
             margin: 0;   
             padding: 0;   
@@ -179,7 +223,6 @@
             text-align: center;  
         }  
 
-        /* Links container */  
         .footer-links {  
             display: flex;  
             flex-direction: column;  
@@ -190,7 +233,6 @@
             padding: 0 5px;   
         }  
           
-        /* Link styling for your requested format */  
         .footer-links div {  
             text-align: center;   
             word-break: break-word;   
@@ -199,16 +241,14 @@
             line-height: 1.3;  
         }  
 
-        /* ======================================================= */  
-        /* MEDIA QUERY FOR DESKTOP/LARGE SCREENS (> 767px) */  
-        /* ======================================================= */  
+        /* Desktop */  
         @media (min-width: 768px) {  
             .background-image {  
                 height: 35vh;   
             }  
             
             .video-section video {  
-                height: 35vh; /* Desktop पर भी same height */  
+                height: 35vh;  
             }  
             
             .second-image {  
@@ -216,40 +256,32 @@
             }  
         }  
 
-        /* ======================================================= */  
-        /* MEDIA QUERY FOR MOBILE DEVICES (<= 767px) */  
-        /* ======================================================= */  
+        /* Mobile */  
         @media (max-width: 767px) {  
-              
-            /* H1 मोबाइल पर छोटा */  
             .app-title {  
                 font-size: 20px;  
                 padding-top: 10px;  
             }  
               
-            /* मुख्य इमेज */  
             .background-image {  
                 height: 35vh;  
             }  
               
-            /* 🎥 MOBILE VIDEO STYLING */  
             .video-section {  
                 padding: 10px 5px;  
             }  
 
             .video-section video {  
-                height: 35vh; /* Mobile पर भी same height */  
-                border-width: 3px; /* Mobile पर border थोड़ा पतला */  
+                height: 35vh;  
+                border-width: 3px;  
             }  
               
-            /* 🟢 दूसरी इमेज के लिए मोबाइल CSS */  
             .second-image {  
                 height: 50vh;  
                 padding: 0;   
                 margin: 0;  
             }  
               
-            /* Download Button adjustment for mobile */  
             .download-button {  
                 font-size: 20px;   
                 padding: 12px 25px;   
@@ -260,19 +292,15 @@
                  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);  
             }  
             .download-button:active {  
-                background-color: #1e7e34;  
                 transform: translateY(0);   
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);  
             }  
               
-            /* फिक्स्ड बटन को मोबाइल पर स्क्रीन के नीचे से और ऊपर रखा गया */  
             .fixed-button-wrapper {  
                 bottom: 50px;   
             }  
               
-            /* Mobile Text Wrapping Final Fix */  
             .footer-content {  
-                text-align: center;   
                 font-size: 13px;   
                 width: 100%;   
                 padding: 0 5px;   
@@ -288,23 +316,21 @@
                 max-width: 100%;  
             }  
 
-            /* 4 लाइन वाले टेक्स्ट के लिए मार्जिन कम करना */  
             .line-fix {  
                 margin-bottom: 5px !important;   
                 line-height: 1.2 !important;   
             }  
-            /* पहली लाइन को बोल्ड करने के लिए थोड़ा अतिरिक्त स्पेस */  
+            
             .main-text p:first-child {  
                 font-weight: bold;  
                 margin-bottom: 8px !important;   
             }  
-            /* 4th लाइन (अंतिम लाइन) के बाद थोड़ा ज़्यादा स्पेस */  
+            
             .main-text p:last-child {  
                 margin-bottom: 15px !important;  
             }  
               
             .footer-links {  
-                align-items: center;  
                 max-width: 95%;   
                 padding: 0;  
             }  
@@ -321,12 +347,40 @@
         <h1 class="app-title">Milk Scale App Official Download Page</h1>  
         <div class="background-image"></div>  
         
-        <!-- ✅ NEW VIDEO SECTION ADDED HERE -->  
+        <!-- ✅ VIDEO SECTION WITH MULTIPLE SOURCE OPTIONS -->
         <div class="video-section">  
-            <video id="appVideo" controls autoplay muted loop playsinline>  
-                <source src="video.mp4" type="video/mp4">  
-                आपका ब्राउज़र video tag को support नहीं करता।  
-            </video>  
+            <div id="videoLoading">
+                <i class="fas fa-spinner fa-spin"></i> Video loading...
+            </div>
+            
+            <video id="appVideo" controls autoplay muted loop playsinline
+                   poster="main-background.jpg">
+                <!-- PRIMARY SOURCE: Direct GitHub Raw Link -->
+                <source src="https://raw.githubusercontent.com/Milk-Scale-App/MilkScaleApp/main/video.mp4" type="video/mp4">
+                
+                <!-- SECONDARY SOURCE: CORS Proxy -->
+                <source src="https://corsproxy.io/?https://raw.githubusercontent.com/Milk-Scale-App/MilkScaleApp/main/video.mp4" type="video/mp4">
+                
+                <!-- TERTIARY SOURCE: GitHub Pages -->
+                <source src="https://milk-scale-app.github.io/MilkScaleApp/video.mp4" type="video/mp4">
+                
+                <!-- FALLBACK MESSAGE -->
+                <div class="video-error">
+                    <h3><i class="fas fa-exclamation-triangle"></i> Video नहीं चल रही</h3>
+                    <p><strong>Possible issues:</strong></p>
+                    <p>1. Video file repository में नहीं है</p>
+                    <p>2. File का नाम "video.mp4" होना चाहिए</p>
+                    <p>3. File size 25MB से कम होनी चाहिए</p>
+                    
+                    <a href="https://raw.githubusercontent.com/Milk-Scale-App/MilkScaleApp/main/video.mp4" target="_blank">
+                        <i class="fas fa-download"></i> Direct Video Download Link
+                    </a>
+                    
+                    <p style="margin-top: 10px; font-size: 14px;">
+                        अगर link काम नहीं कर रहा, तो कृपया check करें video.mp4 आपकी repository में है।
+                    </p>
+                </div>
+            </video>
         </div>  
         
         <div class="second-image"></div>  
@@ -379,22 +433,86 @@
     </div>  
 
     <script>  
-        // Optional: Video controls के लिए additional script  
         document.addEventListener('DOMContentLoaded', function() {  
-            const video = document.getElementById('appVideo');  
+            const video = document.getElementById('appVideo');
+            const loading = document.getElementById('videoLoading');
+            let currentSourceIndex = 0;
             
-            // User जब unmute करे तो volume 50% से शुरू हो  
-            video.addEventListener('volumechange', function() {  
-                if (!video.muted && video.volume === 1) {  
-                    video.volume = 0.5; // 50% volume set करें  
-                }  
-            });  
+            // Video sources array
+            const videoSources = [
+                "https://raw.githubusercontent.com/Milk-Scale-App/MilkScaleApp/main/video.mp4",
+                "https://corsproxy.io/?https://raw.githubusercontent.com/Milk-Scale-App/MilkScaleApp/main/video.mp4",
+                "https://milk-scale-app.github.io/MilkScaleApp/video.mp4"
+            ];
             
-            // Video error handling  
-            video.addEventListener('error', function() {  
-                console.log('Video load नहीं हो पाया। कृपया check करें video.mp4 file उपलब्ध है।');  
-            });  
-        });  
+            // Hide loading when video can play
+            video.addEventListener('canplay', function() {
+                loading.style.display = 'none';
+                console.log('✅ Video loaded successfully');
+            });
+            
+            // Error handling - try next source
+            video.addEventListener('error', function(e) {
+                console.error('Video error, trying next source...');
+                
+                currentSourceIndex++;
+                if (currentSourceIndex < videoSources.length) {
+                    video.src = videoSources[currentSourceIndex];
+                    video.load();
+                    console.log('Trying source:', currentSourceIndex + 1);
+                } else {
+                    loading.style.display = 'none';
+                    console.error('❌ All video sources failed');
+                    showFinalError();
+                }
+            });
+            
+            // Try to play automatically
+            video.muted = true;
+            video.volume = 0;
+            
+            const playPromise = video.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(error => {
+                    console.log('Auto-play was prevented:', error);
+                });
+            }
+            
+            // When user clicks unmute, set volume to 50%
+            video.addEventListener('volumechange', function() {
+                if (!video.muted && video.volume === 1) {
+                    video.volume = 0.5;
+                }
+            });
+            
+            // Check if video loaded after 5 seconds
+            setTimeout(function() {
+                if (video.readyState < 2) { // HAVE_CURRENT_DATA or less
+                    console.log('Video taking too long, trying alternative...');
+                    if (currentSourceIndex < videoSources.length - 1) {
+                        currentSourceIndex++;
+                        video.src = videoSources[currentSourceIndex];
+                        video.load();
+                    }
+                }
+            }, 5000);
+            
+            function showFinalError() {
+                const errorDiv = document.querySelector('.video-error');
+                if (errorDiv) {
+                    errorDiv.innerHTML = `
+                        <h3><i class="fas fa-exclamation-circle"></i> Video Load नहीं हो पा रही</h3>
+                        <p><strong>Solution:</strong></p>
+                        <p>1. कृपया <strong>video.mp4</strong> file को compress करें (5-10MB तक)</p>
+                        <p>2. या YouTube पर upload करके embed code use करें</p>
+                        <a href="mailto:milkscaleapp@gmail.com" style="background: #ffcc00; color: #000;">
+                            <i class="fas fa-envelope"></i> Support से Contact करें
+                        </a>
+                    `;
+                    errorDiv.style.display = 'block';
+                }
+            }
+        });
     </script>  
 </body>  
 </html>

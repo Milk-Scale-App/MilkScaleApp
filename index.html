@@ -61,12 +61,12 @@
             margin: 0;   
         }  
           
-        /* YOUTUBE VIDEO SECTION */  
+        /* YOUTUBE VIDEO SECTION - PROFESSIONAL */  
         .video-section {  
             width: 100%;  
-            max-width: 1200px;  
+            max-width: 1000px; /* 20% कम किया */  
             margin: 0 auto;  
-            padding: 15px 10px;  
+            padding: 20px 15px; /* दोनों तरफ equal space */  
             background-color: #1956a8;  
             box-sizing: border-box;  
         }  
@@ -74,12 +74,12 @@
         .youtube-container {  
             position: relative;  
             width: 100%;  
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */  
+            padding-bottom: 45%; /* 20% height कम किया */  
             height: 0;  
             overflow: hidden;  
             border: 4px solid black;  
-            border-radius: 5px;  
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);  
+            border-radius: 8px;  
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);  
             background: #000;  
         }  
 
@@ -90,12 +90,6 @@
             width: 100%;  
             height: 100%;  
             border: none;  
-        }  
-
-        .video-note {  
-            color: white;  
-            margin-top: 10px;  
-            font-size: 14px;  
         }  
 
         /* दूसरी इमेज */  
@@ -160,7 +154,7 @@
             display: flex;  
             justify-content: center;  
             align-items: center;  
-            padding: 0 10px 30px;   
+            padding: 0 15px 30px; /* दोनों तरफ equal space */  
             text-align: center;  
             font-size: 16px;  
             margin: 0;   
@@ -218,11 +212,20 @@
             }  
             
             .youtube-container {  
-                padding-bottom: 40%; /* Desktop पर थोड़ा छोटा */  
+                padding-bottom: 36%; /* Desktop पर भी 20% कम */  
             }  
             
             .second-image {  
                 height: 50vh;   
+            }  
+            
+            /* दोनों तरफ equal space desktop पर */  
+            .video-section {  
+                padding: 25px 20px;  
+            }  
+            
+            .footer-section {  
+                padding: 0 20px 30px;  
             }  
         }  
 
@@ -238,12 +241,12 @@
             }  
               
             .video-section {  
-                padding: 10px 5px;  
+                padding: 15px 10px; /* Mobile पर भी equal space */  
             }  
 
             .youtube-container {  
                 border-width: 3px;  
-                padding-bottom: 56.25%; /* Mobile पर 16:9 maintain करें */  
+                padding-bottom: 36%; /* Mobile पर भी 20% कम */  
             }  
               
             .second-image {  
@@ -309,6 +312,10 @@
                 font-size: 13px;  
                 display: block;   
             }  
+            
+            .footer-section {  
+                padding: 0 10px 30px; /* Mobile पर भी equal space */  
+            }  
         }  
     </style>  
 </head>  
@@ -317,21 +324,19 @@
         <h1 class="app-title">Milk Scale App Official Download Page</h1>  
         <div class="background-image"></div>  
         
-        <!-- ✅ YOUTUBE VIDEO SECTION -->
+        <!-- ✅ PROFESSIONAL YOUTUBE VIDEO SECTION -->
         <div class="video-section">  
             <div class="youtube-container">  
-                <!-- YouTube Embed Code -->
+                <!-- Professional YouTube Embed - No autoplay, Clean controls -->
                 <iframe 
-                    src="https://www.youtube.com/embed/CLu6xvh5Yw4?autoplay=1&mute=1&loop=1&playlist=CLu6xvh5Yw4&controls=1&modestbranding=1&rel=0" 
+                    src="https://www.youtube.com/embed/CLu6xvh5Yw4?modestbranding=1&rel=0&controls=1" 
                     title="Milk Scale App Demo" 
                     frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                     allowfullscreen>
                 </iframe>
             </div>  
-            <p class="video-note">
-                <i class="fas fa-info-circle"></i> Video automatically चलेगी (muted में)
-            </p>
+            <!-- Video note हटा दिया गया -->
         </div>  
         
         <div class="second-image"></div>  
@@ -381,13 +386,13 @@
                 </div>  
             </div>  
             
-            <!-- YouTube Link -->
-            <div style="margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.1); border-radius: 10px; width: 100%;">
-                <p>
-                    <i class="fab fa-youtube" style="color: #ff0000;"></i> 
-                    <strong>App Demo Video:</strong> 
-                    <a href="https://youtu.be/CLu6xvh5Yw4" target="_blank" style="color: #ffcc00;">
-                        https://youtu.be/CLu6xvh5Yw4
+            <!-- YouTube Link - Clean Design -->
+            <div style="margin-top: 20px; padding: 12px 15px; background: rgba(255,255,255,0.08); border-radius: 8px; width: 100%; box-sizing: border-box;">
+                <p style="margin: 0;">
+                    <i class="fab fa-youtube" style="color: #ff0000; margin-right: 8px;"></i> 
+                    <strong style="color: white;">App Demo Video:</strong> 
+                    <a href="https://youtu.be/CLu6xvh5Yw4" target="_blank" style="color: #ffcc00; text-decoration: none; margin-left: 5px;">
+                        YouTube पर देखें
                     </a>
                 </p>
             </div>
@@ -395,12 +400,11 @@
     </div>  
 
     <script>  
-        // YouTube video controls
         document.addEventListener('DOMContentLoaded', function() {  
-            console.log('Milk Scale App page loaded with YouTube video');
+            console.log('Professional Milk Scale App page loaded');
             
-            // Optional: Add YouTube API for more control
-            // Note: Autoplay is already handled in iframe URL parameters
+            // YouTube player customization (optional)
+            // User को manually play करना होगा - professional look
         });
     </script>  
 </body>  

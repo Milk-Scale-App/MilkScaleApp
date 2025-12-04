@@ -61,7 +61,7 @@
             margin: 0;   
         }  
           
-        /* VIDEO SECTION - SIMPLE */  
+        /* YOUTUBE VIDEO SECTION */  
         .video-section {  
             width: 100%;  
             max-width: 1200px;  
@@ -71,15 +71,31 @@
             box-sizing: border-box;  
         }  
 
-        .video-section video {  
+        .youtube-container {  
+            position: relative;  
             width: 100%;  
-            height: 40vh;  
-            object-fit: cover;  
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */  
+            height: 0;  
+            overflow: hidden;  
             border: 4px solid black;  
             border-radius: 5px;  
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);  
-            display: block;  
-            background-color: #000;  
+            background: #000;  
+        }  
+
+        .youtube-container iframe {  
+            position: absolute;  
+            top: 0;  
+            left: 0;  
+            width: 100%;  
+            height: 100%;  
+            border: none;  
+        }  
+
+        .video-note {  
+            color: white;  
+            margin-top: 10px;  
+            font-size: 14px;  
         }  
 
         /* दूसरी इमेज */  
@@ -201,8 +217,8 @@
                 height: 35vh;   
             }  
             
-            .video-section video {  
-                height: 35vh;  
+            .youtube-container {  
+                padding-bottom: 40%; /* Desktop पर थोड़ा छोटा */  
             }  
             
             .second-image {  
@@ -225,9 +241,9 @@
                 padding: 10px 5px;  
             }  
 
-            .video-section video {  
-                height: 35vh;  
+            .youtube-container {  
                 border-width: 3px;  
+                padding-bottom: 56.25%; /* Mobile पर 16:9 maintain करें */  
             }  
               
             .second-image {  
@@ -301,12 +317,21 @@
         <h1 class="app-title">Milk Scale App Official Download Page</h1>  
         <div class="background-image"></div>  
         
-        <!-- ✅ SIMPLE VIDEO SECTION - NO ERRORS -->
+        <!-- ✅ YOUTUBE VIDEO SECTION -->
         <div class="video-section">  
-            <video controls autoplay muted loop playsinline>
-                <source src="video.mp4" type="video/mp4">
-                आपका ब्राउज़र video को support नहीं करता।
-            </video>
+            <div class="youtube-container">  
+                <!-- YouTube Embed Code -->
+                <iframe 
+                    src="https://www.youtube.com/embed/CLu6xvh5Yw4?autoplay=1&mute=1&loop=1&playlist=CLu6xvh5Yw4&controls=1&modestbranding=1&rel=0" 
+                    title="Milk Scale App Demo" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>  
+            <p class="video-note">
+                <i class="fas fa-info-circle"></i> Video automatically चलेगी (muted में)
+            </p>
         </div>  
         
         <div class="second-image"></div>  
@@ -355,28 +380,27 @@
                     **📣 Telegram chanel :** <a href="https://t.me/milkscaleapp" target="_blank">[https://t.me/milkscaleapp]</a>  
                 </div>  
             </div>  
+            
+            <!-- YouTube Link -->
+            <div style="margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.1); border-radius: 10px; width: 100%;">
+                <p>
+                    <i class="fab fa-youtube" style="color: #ff0000;"></i> 
+                    <strong>App Demo Video:</strong> 
+                    <a href="https://youtu.be/CLu6xvh5Yw4" target="_blank" style="color: #ffcc00;">
+                        https://youtu.be/CLu6xvh5Yw4
+                    </a>
+                </p>
+            </div>
         </div>  
     </div>  
 
     <script>  
-        // Simple video control
+        // YouTube video controls
         document.addEventListener('DOMContentLoaded', function() {  
-            const video = document.querySelector('video');
+            console.log('Milk Scale App page loaded with YouTube video');
             
-            // When user clicks unmute, set volume to 50%
-            video.addEventListener('volumechange', function() {
-                if (!video.muted && video.volume === 1) {
-                    video.volume = 0.5;
-                }
-            });
-            
-            // Try to play automatically (muted)
-            video.muted = true;
-            
-            // Optional: Log when video plays
-            video.addEventListener('play', function() {
-                console.log('Video is playing');
-            });
+            // Optional: Add YouTube API for more control
+            // Note: Autoplay is already handled in iframe URL parameters
         });
     </script>  
 </body>  

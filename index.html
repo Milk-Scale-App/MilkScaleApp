@@ -61,11 +61,12 @@
             margin: 0;   
         }  
           
-        /* YOUTUBE VIDEO SECTION - COMPACT */  
+        /* YOUTUBE VIDEO SECTION */  
         .video-section {  
-            width: 90%;  
+            width: 100%;  
+            max-width: 1200px;  
             margin: 0 auto;  
-            padding: 10px 0; /* कम padding */  
+            padding: 15px 10px;  
             background-color: #1956a8;  
             box-sizing: border-box;  
         }  
@@ -73,12 +74,12 @@
         .youtube-container {  
             position: relative;  
             width: 100%;  
-            padding-bottom: 56.25%; /* Normal 16:9 ratio */  
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */  
             height: 0;  
             overflow: hidden;  
-            border: 3px solid #000; /* Black border */  
-            border-radius: 8px;  
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 0, 0, 0.3) inset; /* 3D shadow */  
+            border: 4px solid black;  
+            border-radius: 5px;  
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);  
             background: #000;  
         }  
 
@@ -91,7 +92,13 @@
             border: none;  
         }  
 
-        /* दूसरी इमेज - VIDEO के बिल्कुल नीचे */  
+        .video-note {  
+            color: white;  
+            margin-top: 10px;  
+            font-size: 14px;  
+        }  
+
+        /* दूसरी इमेज */  
         .second-image {  
             width: 100%;  
             height: 65vh;   
@@ -102,7 +109,7 @@
             display: block;  
             background-color: #1956a8;  
             padding: 0;   
-            margin: 5px 0 0 0; /* बिल्कुल नीचे */  
+            margin: 0;   
         }  
           
         /* Fixed Button */  
@@ -153,7 +160,7 @@
             display: flex;  
             justify-content: center;  
             align-items: center;  
-            padding: 0 15px 30px;  
+            padding: 0 10px 30px;   
             text-align: center;  
             font-size: 16px;  
             margin: 0;   
@@ -210,14 +217,12 @@
                 height: 35vh;   
             }  
             
-            .video-section {  
-                width: 85%;  
-                padding: 15px 0;  
-            }
+            .youtube-container {  
+                padding-bottom: 40%; /* Desktop पर थोड़ा छोटा */  
+            }  
             
             .second-image {  
-                height: 55vh; /* Desktop पर थोड़ा छोटा */  
-                margin: 5px 0 0 0;  
+                height: 50vh;   
             }  
         }  
 
@@ -233,13 +238,18 @@
             }  
               
             .video-section {  
-                width: 95%;  
-                padding: 8px 0;  
+                padding: 10px 5px;  
+            }  
+
+            .youtube-container {  
+                border-width: 3px;  
+                padding-bottom: 56.25%; /* Mobile पर 16:9 maintain करें */  
             }  
               
             .second-image {  
                 height: 50vh;  
-                margin: 5px 0 0 0;  
+                padding: 0;   
+                margin: 0;  
             }  
               
             .download-button {  
@@ -247,6 +257,13 @@
                 padding: 12px 25px;   
                 gap: 8px;  
                 box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);   
+            }  
+            .download-button:hover {  
+                 box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);  
+            }  
+            .download-button:active {  
+                transform: translateY(0);   
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);  
             }  
               
             .fixed-button-wrapper {  
@@ -292,10 +309,6 @@
                 font-size: 13px;  
                 display: block;   
             }  
-            
-            .footer-section {  
-                padding: 0 10px 30px;  
-            }  
         }  
     </style>  
 </head>  
@@ -304,22 +317,23 @@
         <h1 class="app-title">Milk Scale App Official Download Page</h1>  
         <div class="background-image"></div>  
         
-        <!-- ✅ CLEAN VIDEO WITH CONTROLS -->
+        <!-- ✅ YOUTUBE VIDEO SECTION -->
         <div class="video-section">  
             <div class="youtube-container">  
-                <!-- YouTube Embed - With Controls, No Share Button -->
+                <!-- YouTube Embed Code -->
                 <iframe 
-                    id="youtubeVideo"
-                    src="https://www.youtube.com/embed/CLu6xvh5Yw4?autoplay=1&mute=0&loop=1&playlist=CLu6xvh5Yw4&controls=1&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3" 
+                    src="https://www.youtube.com/embed/CLu6xvh5Yw4?autoplay=1&mute=1&loop=1&playlist=CLu6xvh5Yw4&controls=1&modestbranding=1&rel=0" 
                     title="Milk Scale App Demo" 
                     frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                     allowfullscreen>
                 </iframe>
             </div>  
+            <p class="video-note">
+                <i class="fas fa-info-circle"></i> Video automatically चलेगी (muted में)
+            </p>
         </div>  
         
-        <!-- दूसरी इमेज - बिल्कुल नीचे -->
         <div class="second-image"></div>  
     </div>   
     
@@ -366,122 +380,27 @@
                     **📣 Telegram chanel :** <a href="https://t.me/milkscaleapp" target="_blank">[https://t.me/milkscaleapp]</a>  
                 </div>  
             </div>  
+            
+            <!-- YouTube Link -->
+            <div style="margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.1); border-radius: 10px; width: 100%;">
+                <p>
+                    <i class="fab fa-youtube" style="color: #ff0000;"></i> 
+                    <strong>App Demo Video:</strong> 
+                    <a href="https://youtu.be/CLu6xvh5Yw4" target="_blank" style="color: #ffcc00;">
+                        https://youtu.be/CLu6xvh5Yw4
+                    </a>
+                </p>
+            </div>
         </div>  
     </div>  
 
-    <!-- YouTube IFrame API -->
-    <script src="https://www.youtube.com/iframe_api"></script>
-    
     <script>  
-        let player;
-        let videoPlayed = false;
-        
-        function onYouTubeIframeAPIReady() {
-            player = new YT.Player('youtubeVideo', {
-                events: {
-                    'onReady': onPlayerReady,
-                    'onStateChange': onPlayerStateChange
-                }
-            });
-        }
-        
-        function onPlayerReady(event) {
-            console.log('YouTube Player Ready - Auto-playing video');
+        // YouTube video controls
+        document.addEventListener('DOMContentLoaded', function() {  
+            console.log('Milk Scale App page loaded with YouTube video');
             
-            // IMMEDIATE AUTO PLAY ON LOAD
-            setTimeout(function() {
-                event.target.playVideo();
-                event.target.unMute();
-                event.target.setVolume(100);
-                videoPlayed = true;
-                console.log('Video auto-played on page load');
-            }, 1000); // 1 second delay
-            
-            // Force play every 3 seconds if stopped
-            setInterval(function() {
-                if (player && player.getPlayerState() !== YT.PlayerState.PLAYING) {
-                    player.playVideo();
-                    player.unMute();
-                    player.setVolume(100);
-                }
-            }, 3000);
-        }
-        
-        function onPlayerStateChange(event) {
-            // If video ends, restart it immediately
-            if (event.data === YT.PlayerState.ENDED) {
-                player.playVideo();
-                player.unMute();
-                player.setVolume(100);
-            }
-            
-            // Log when video starts playing
-            if (event.data === YT.PlayerState.PLAYING && !videoPlayed) {
-                videoPlayed = true;
-                console.log('Video started playing');
-            }
-        }
-        
-        // Auto-play on page load with multiple attempts
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('Page loaded - Attempting auto-play');
-            
-            // Attempt 1: Immediate attempt
-            setTimeout(function() {
-                if (player && player.getPlayerState && player.getPlayerState() !== YT.PlayerState.PLAYING) {
-                    player.playVideo();
-                    player.unMute();
-                    player.setVolume(100);
-                }
-            }, 500);
-            
-            // Attempt 2: After 2 seconds
-            setTimeout(function() {
-                if (player && player.getPlayerState && player.getPlayerState() !== YT.PlayerState.PLAYING) {
-                    player.playVideo();
-                    player.unMute();
-                    player.setVolume(100);
-                }
-            }, 2000);
-            
-            // Attempt 3: On any user interaction
-            document.addEventListener('click', function() {
-                if (player && player.getPlayerState && player.getPlayerState() !== YT.PlayerState.PLAYING) {
-                    player.playVideo();
-                    player.unMute();
-                    player.setVolume(100);
-                }
-            });
-            
-            document.addEventListener('touchstart', function() {
-                if (player && player.getPlayerState && player.getPlayerState() !== YT.PlayerState.PLAYING) {
-                    player.playVideo();
-                    player.unMute();
-                    player.setVolume(100);
-                }
-            });
-        });
-        
-        // Ensure video plays when page comes into focus
-        window.addEventListener('focus', function() {
-            if (player && player.getPlayerState && player.getPlayerState() !== YT.PlayerState.PLAYING) {
-                setTimeout(function() {
-                    player.playVideo();
-                    player.unMute();
-                    player.setVolume(100);
-                }, 500);
-            }
-        });
-        
-        // Handle visibility change (tab switching)
-        document.addEventListener('visibilitychange', function() {
-            if (!document.hidden && player && player.getPlayerState && player.getPlayerState() !== YT.PlayerState.PLAYING) {
-                setTimeout(function() {
-                    player.playVideo();
-                    player.unMute();
-                    player.setVolume(100);
-                }, 1000);
-            }
+            // Optional: Add YouTube API for more control
+            // Note: Autoplay is already handled in iframe URL parameters
         });
     </script>  
 </body>  

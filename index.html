@@ -61,12 +61,12 @@
             margin: 0;   
         }  
           
-        /* YOUTUBE VIDEO SECTION - PROFESSIONAL */  
+        /* YOUTUBE VIDEO SECTION - WITH SOUND */  
         .video-section {  
             width: 100%;  
-            max-width: 1000px; /* 20% कम किया */  
+            max-width: 1000px;  
             margin: 0 auto;  
-            padding: 20px 15px; /* दोनों तरफ equal space */  
+            padding: 20px 15px;  
             background-color: #1956a8;  
             box-sizing: border-box;  
         }  
@@ -74,7 +74,7 @@
         .youtube-container {  
             position: relative;  
             width: 100%;  
-            padding-bottom: 45%; /* 20% height कम किया */  
+            padding-bottom: 45%;  
             height: 0;  
             overflow: hidden;  
             border: 4px solid black;  
@@ -154,7 +154,7 @@
             display: flex;  
             justify-content: center;  
             align-items: center;  
-            padding: 0 15px 30px; /* दोनों तरफ equal space */  
+            padding: 0 15px 30px;  
             text-align: center;  
             font-size: 16px;  
             margin: 0;   
@@ -212,14 +212,13 @@
             }  
             
             .youtube-container {  
-                padding-bottom: 36%; /* Desktop पर भी 20% कम */  
+                padding-bottom: 36%;  
             }  
             
             .second-image {  
                 height: 50vh;   
             }  
             
-            /* दोनों तरफ equal space desktop पर */  
             .video-section {  
                 padding: 25px 20px;  
             }  
@@ -241,12 +240,12 @@
             }  
               
             .video-section {  
-                padding: 15px 10px; /* Mobile पर भी equal space */  
+                padding: 15px 10px;  
             }  
 
             .youtube-container {  
                 border-width: 3px;  
-                padding-bottom: 36%; /* Mobile पर भी 20% कम */  
+                padding-bottom: 36%;  
             }  
               
             .second-image {  
@@ -314,7 +313,7 @@
             }  
             
             .footer-section {  
-                padding: 0 10px 30px; /* Mobile पर भी equal space */  
+                padding: 0 10px 30px;  
             }  
         }  
     </style>  
@@ -324,19 +323,20 @@
         <h1 class="app-title">Milk Scale App Official Download Page</h1>  
         <div class="background-image"></div>  
         
-        <!-- ✅ PROFESSIONAL YOUTUBE VIDEO SECTION -->
+        <!-- ✅ YOUTUBE VIDEO WITH SOUND AUTO PLAY -->
         <div class="video-section">  
             <div class="youtube-container">  
-                <!-- Professional YouTube Embed - No autoplay, Clean controls -->
+                <!-- YouTube Embed with SOUND and AUTO PLAY -->
                 <iframe 
-                    src="https://www.youtube.com/embed/CLu6xvh5Yw4?modestbranding=1&rel=0&controls=1" 
+                    id="youtubeVideo"
+                    src="https://www.youtube.com/embed/CLu6xvh5Yw4?autoplay=1&mute=0&loop=1&playlist=CLu6xvh5Yw4&controls=1&modestbranding=1&rel=0&enablejsapi=1" 
                     title="Milk Scale App Demo" 
                     frameborder="0" 
-                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen
+                    volume="1">
                 </iframe>
             </div>  
-            <!-- Video note हटा दिया गया -->
         </div>  
         
         <div class="second-image"></div>  
@@ -386,11 +386,11 @@
                 </div>  
             </div>  
             
-            <!-- YouTube Link - Clean Design -->
+            <!-- YouTube Link -->
             <div style="margin-top: 20px; padding: 12px 15px; background: rgba(255,255,255,0.08); border-radius: 8px; width: 100%; box-sizing: border-box;">
                 <p style="margin: 0;">
                     <i class="fab fa-youtube" style="color: #ff0000; margin-right: 8px;"></i> 
-                    <strong style="color: white;">App Demo Video:</strong> 
+                    <strong style="color: white;">App Demo Video (Auto-play with Sound):</strong> 
                     <a href="https://youtu.be/CLu6xvh5Yw4" target="_blank" style="color: #ffcc00; text-decoration: none; margin-left: 5px;">
                         YouTube पर देखें
                     </a>
@@ -399,12 +399,86 @@
         </div>  
     </div>  
 
+    <!-- YouTube IFrame API -->
+    <script src="https://www.youtube.com/iframe_api"></script>
+    
     <script>  
-        document.addEventListener('DOMContentLoaded', function() {  
-            console.log('Professional Milk Scale App page loaded');
+        let player;
+        
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('youtubeVideo', {
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
+        
+        function onPlayerReady(event) {
+            console.log('YouTube Player Ready');
             
-            // YouTube player customization (optional)
-            // User को manually play करना होगा - professional look
+            // Force unmute and set volume to maximum
+            event.target.unMute();
+            event.target.setVolume(100);
+            
+            // Play video with sound
+            event.target.playVideo();
+            
+            // Ensure video keeps playing
+            setInterval(function() {
+                if (player && player.getPlayerState() !== YT.PlayerState.PLAYING) {
+                    player.playVideo();
+                    player.unMute();
+                    player.setVolume(100);
+                }
+            }, 1000);
+        }
+        
+        function onPlayerStateChange(event) {
+            // If video ends, restart it
+            if (event.data === YT.PlayerState.ENDED) {
+                player.playVideo();
+                player.unMute();
+                player.setVolume(100);
+            }
+            
+            // If video is playing, ensure it's unmuted
+            if (event.data === YT.PlayerState.PLAYING) {
+                player.unMute();
+                player.setVolume(100);
+            }
+        }
+        
+        // Alternative method for browsers that block autoplay
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Milk Scale App loaded - Video with sound auto-play');
+            
+            // Try to trigger play on user interaction
+            document.body.addEventListener('click', function() {
+                if (player && player.getPlayerState() !== YT.PlayerState.PLAYING) {
+                    player.playVideo();
+                    player.unMute();
+                    player.setVolume(100);
+                }
+            });
+            
+            // Also try on touch for mobile
+            document.body.addEventListener('touchstart', function() {
+                if (player && player.getPlayerState() !== YT.PlayerState.PLAYING) {
+                    player.playVideo();
+                    player.unMute();
+                    player.setVolume(100);
+                }
+            });
+            
+            // Auto-play after 1 second
+            setTimeout(function() {
+                if (player) {
+                    player.playVideo();
+                    player.unMute();
+                    player.setVolume(100);
+                }
+            }, 1000);
         });
     </script>  
 </body>  

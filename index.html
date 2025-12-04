@@ -61,12 +61,11 @@
             margin: 0;   
         }  
           
-        /* YOUTUBE VIDEO SECTION - FULL SCREEN STYLE */
+        /* YOUTUBE VIDEO SECTION - COMPACT */  
         .video-section {  
-            width: 90%; /* 10% कम width */
-            max-width: none; /* Remove max-width restriction */
+            width: 90%;  
             margin: 0 auto;  
-            padding: 15px 0; /* Remove side padding */
+            padding: 10px 0; /* कम padding */  
             background-color: #1956a8;  
             box-sizing: border-box;  
         }  
@@ -74,9 +73,12 @@
         .youtube-container {  
             position: relative;  
             width: 100%;  
-            padding-bottom: 70%; /* 25% height बढ़ाई */
+            padding-bottom: 56.25%; /* Normal 16:9 ratio */  
             height: 0;  
             overflow: hidden;  
+            border: 3px solid #000; /* Black border */  
+            border-radius: 8px;  
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 0, 0, 0.3) inset; /* 3D shadow */  
             background: #000;  
         }  
 
@@ -89,32 +91,7 @@
             border: none;  
         }  
 
-        /* Sound Control Button */
-        .sound-control {
-            position: absolute;
-            bottom: 15px;
-            right: 15px;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 100;
-            font-size: 18px;
-            transition: all 0.3s;
-        }
-
-        .sound-control:hover {
-            background: rgba(0, 0, 0, 0.9);
-            transform: scale(1.1);
-        }
-
-        /* दूसरी इमेज */  
+        /* दूसरी इमेज - VIDEO के बिल्कुल नीचे */  
         .second-image {  
             width: 100%;  
             height: 65vh;   
@@ -125,7 +102,7 @@
             display: block;  
             background-color: #1956a8;  
             padding: 0;   
-            margin: 0;   
+            margin: 5px 0 0 0; /* बिल्कुल नीचे */  
         }  
           
         /* Fixed Button */  
@@ -234,22 +211,14 @@
             }  
             
             .video-section {  
-                width: 85%; /* Desktop पर 15% कम width */
+                width: 85%;  
+                padding: 15px 0;  
             }
-            
-            .youtube-container {  
-                padding-bottom: 65%; /* Desktop पर height */
-            }  
             
             .second-image {  
-                height: 50vh;   
+                height: 55vh; /* Desktop पर थोड़ा छोटा */  
+                margin: 5px 0 0 0;  
             }  
-            
-            .sound-control {
-                width: 50px;
-                height: 50px;
-                font-size: 22px;
-            }
         }  
 
         /* Mobile */  
@@ -264,18 +233,13 @@
             }  
               
             .video-section {  
-                width: 95%; /* Mobile पर 5% कम width */
-                padding: 10px 0;  
-            }  
-
-            .youtube-container {  
-                padding-bottom: 75%; /* Mobile पर ज्यादा height */
+                width: 95%;  
+                padding: 8px 0;  
             }  
               
             .second-image {  
                 height: 50vh;  
-                padding: 0;   
-                margin: 0;  
+                margin: 5px 0 0 0;  
             }  
               
             .download-button {  
@@ -283,13 +247,6 @@
                 padding: 12px 25px;   
                 gap: 8px;  
                 box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);   
-            }  
-            .download-button:hover {  
-                 box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);  
-            }  
-            .download-button:active {  
-                transform: translateY(0);   
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);  
             }  
               
             .fixed-button-wrapper {  
@@ -347,26 +304,22 @@
         <h1 class="app-title">Milk Scale App Official Download Page</h1>  
         <div class="background-image"></div>  
         
-        <!-- ✅ FULL SCREEN VIDEO SECTION -->
+        <!-- ✅ CLEAN VIDEO WITH CONTROLS -->
         <div class="video-section">  
             <div class="youtube-container">  
-                <!-- YouTube Embed - No Controls -->
+                <!-- YouTube Embed - With Controls, No Share Button -->
                 <iframe 
                     id="youtubeVideo"
-                    src="https://www.youtube.com/embed/CLu6xvh5Yw4?autoplay=1&mute=0&loop=1&playlist=CLu6xvh5Yw4&controls=0&modestbranding=1&rel=0&enablejsapi=1&iv_load_policy=3" 
+                    src="https://www.youtube.com/embed/CLu6xvh5Yw4?autoplay=1&mute=0&loop=1&playlist=CLu6xvh5Yw4&controls=1&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3" 
                     title="Milk Scale App Demo" 
                     frameborder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                     allowfullscreen>
                 </iframe>
-                
-                <!-- Sound Control Button -->
-                <button class="sound-control" id="soundToggle">
-                    <i class="fas fa-volume-up" id="soundIcon"></i>
-                </button>
             </div>  
         </div>  
         
+        <!-- दूसरी इमेज - बिल्कुल नीचे -->
         <div class="second-image"></div>  
     </div>   
     
@@ -421,7 +374,7 @@
     
     <script>  
         let player;
-        let isMuted = false;
+        let videoPlayed = false;
         
         function onYouTubeIframeAPIReady() {
             player = new YT.Player('youtubeVideo', {
@@ -433,102 +386,101 @@
         }
         
         function onPlayerReady(event) {
-            console.log('YouTube Player Ready');
+            console.log('YouTube Player Ready - Auto-playing video');
             
-            // Auto-play with sound
-            event.target.playVideo();
-            event.target.unMute();
-            event.target.setVolume(100);
+            // IMMEDIATE AUTO PLAY ON LOAD
+            setTimeout(function() {
+                event.target.playVideo();
+                event.target.unMute();
+                event.target.setVolume(100);
+                videoPlayed = true;
+                console.log('Video auto-played on page load');
+            }, 1000); // 1 second delay
             
-            // Hide YouTube controls
-            document.getElementById('youtubeVideo').style.pointerEvents = 'none';
-            
-            // Force play every 2 seconds if stopped
+            // Force play every 3 seconds if stopped
             setInterval(function() {
                 if (player && player.getPlayerState() !== YT.PlayerState.PLAYING) {
                     player.playVideo();
-                    if (!isMuted) {
-                        player.unMute();
-                        player.setVolume(100);
-                    }
+                    player.unMute();
+                    player.setVolume(100);
                 }
-            }, 2000);
+            }, 3000);
         }
         
         function onPlayerStateChange(event) {
-            // If video ends, restart it
+            // If video ends, restart it immediately
             if (event.data === YT.PlayerState.ENDED) {
                 player.playVideo();
-                if (!isMuted) {
-                    player.unMute();
-                    player.setVolume(100);
-                }
+                player.unMute();
+                player.setVolume(100);
+            }
+            
+            // Log when video starts playing
+            if (event.data === YT.PlayerState.PLAYING && !videoPlayed) {
+                videoPlayed = true;
+                console.log('Video started playing');
             }
         }
         
-        // Sound toggle functionality
-        document.getElementById('soundToggle').addEventListener('click', function() {
-            if (player) {
-                if (isMuted) {
-                    // Unmute
+        // Auto-play on page load with multiple attempts
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Page loaded - Attempting auto-play');
+            
+            // Attempt 1: Immediate attempt
+            setTimeout(function() {
+                if (player && player.getPlayerState && player.getPlayerState() !== YT.PlayerState.PLAYING) {
+                    player.playVideo();
                     player.unMute();
                     player.setVolume(100);
-                    document.getElementById('soundIcon').className = 'fas fa-volume-up';
-                    isMuted = false;
-                } else {
-                    // Mute
-                    player.mute();
-                    document.getElementById('soundIcon').className = 'fas fa-volume-mute';
-                    isMuted = true;
                 }
-            }
-        });
-        
-        // Auto-play on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('Page loaded - Auto-playing video');
+            }, 500);
             
-            // Trigger play on any user interaction
-            document.addEventListener('click', function() {
-                if (player && player.getPlayerState() !== YT.PlayerState.PLAYING) {
+            // Attempt 2: After 2 seconds
+            setTimeout(function() {
+                if (player && player.getPlayerState && player.getPlayerState() !== YT.PlayerState.PLAYING) {
                     player.playVideo();
-                    if (!isMuted) {
-                        player.unMute();
-                        player.setVolume(100);
-                    }
+                    player.unMute();
+                    player.setVolume(100);
+                }
+            }, 2000);
+            
+            // Attempt 3: On any user interaction
+            document.addEventListener('click', function() {
+                if (player && player.getPlayerState && player.getPlayerState() !== YT.PlayerState.PLAYING) {
+                    player.playVideo();
+                    player.unMute();
+                    player.setVolume(100);
                 }
             });
             
             document.addEventListener('touchstart', function() {
-                if (player && player.getPlayerState() !== YT.PlayerState.PLAYING) {
+                if (player && player.getPlayerState && player.getPlayerState() !== YT.PlayerState.PLAYING) {
                     player.playVideo();
-                    if (!isMuted) {
-                        player.unMute();
-                        player.setVolume(100);
-                    }
-                }
-            });
-            
-            // Auto-play after 500ms
-            setTimeout(function() {
-                if (player && player.getPlayerState() !== YT.PlayerState.PLAYING) {
-                    player.playVideo();
-                    if (!isMuted) {
-                        player.unMute();
-                        player.setVolume(100);
-                    }
-                }
-            }, 500);
-        });
-        
-        // Ensure video always plays
-        window.addEventListener('focus', function() {
-            if (player && player.getPlayerState() !== YT.PlayerState.PLAYING) {
-                player.playVideo();
-                if (!isMuted) {
                     player.unMute();
                     player.setVolume(100);
                 }
+            });
+        });
+        
+        // Ensure video plays when page comes into focus
+        window.addEventListener('focus', function() {
+            if (player && player.getPlayerState && player.getPlayerState() !== YT.PlayerState.PLAYING) {
+                setTimeout(function() {
+                    player.playVideo();
+                    player.unMute();
+                    player.setVolume(100);
+                }, 500);
+            }
+        });
+        
+        // Handle visibility change (tab switching)
+        document.addEventListener('visibilitychange', function() {
+            if (!document.hidden && player && player.getPlayerState && player.getPlayerState() !== YT.PlayerState.PLAYING) {
+                setTimeout(function() {
+                    player.playVideo();
+                    player.unMute();
+                    player.setVolume(100);
+                }, 1000);
             }
         });
     </script>  

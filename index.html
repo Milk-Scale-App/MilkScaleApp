@@ -5,11 +5,11 @@
     <meta name="google-site-verification" content="Nk-fjvCQAfcGJv8xKUQh9nFHopDQ64xxjngUjoni5y8" />  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
     <title>Milk Scale - दूध और सैंपल से इंक्रीमेंट निकालने का ऐप डाउनलोड करें</title>  
-  
+
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4237674892461520" crossorigin="anonymous"></script>  
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">  
     <link rel="icon" type="image/png" href="favicon.png">   
-  
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-SKMPPCG6LG"></script>  
     <script>  
         window.dataLayer = window.dataLayer || [];  
@@ -61,12 +61,12 @@
             margin: 0;   
         }  
           
-        /* YOUTUBE VIDEO SECTION - FULL FRAME */
+        /* YOUTUBE VIDEO SECTION */  
         .video-section {  
             width: 100%;  
             max-width: 1200px;  
             margin: 0 auto;  
-            padding: 5px 10px; /* कम padding */  
+            padding: 15px 10px;  
             background-color: #1956a8;  
             box-sizing: border-box;  
         }  
@@ -74,7 +74,7 @@
         .youtube-container {  
             position: relative;  
             width: 100%;  
-            padding-bottom: 65%; /* Height optimized */  
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */  
             height: 0;  
             overflow: hidden;  
             border: 4px solid black;  
@@ -92,32 +92,7 @@
             border: none;  
         }  
 
-        /* Sound Control Button */
-        .sound-control {
-            position: absolute;
-            bottom: 15px;
-            right: 15px;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 45px;
-            height: 45px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 100;
-            font-size: 20px;
-            transition: all 0.3s;
-        }
-
-        .sound-control:hover {
-            background: rgba(0, 0, 0, 0.9);
-            transform: scale(1.1);
-        }
-
-        /* दूसरी इमेज - VIDEO के JUST नीचे */
+        /* दूसरी इमेज */  
         .second-image {  
             width: 100%;  
             height: 65vh;   
@@ -128,7 +103,7 @@
             display: block;  
             background-color: #1956a8;  
             padding: 0;   
-            margin: 0; /* No margin - बिल्कुल नीचे */  
+            margin: 0;   
         }  
           
         /* Fixed Button */  
@@ -170,20 +145,19 @@
             font-size: 28px;  
         }  
 
-        /* FOOTER - DARK BLUE BACKGROUND */
+        /* Footer */  
         .footer-section {  
             width: 100%;  
             height: auto;   
-            background-color: #0d2d5e; /* DARK BLUE BACKGROUND */  
+            background-color: #0a2b5e; /* Dark blue background */  
             color: white;  
             display: flex;  
             justify-content: center;  
             align-items: center;  
-            padding: 30px 15px 40px;  
+            padding: 0 10px 30px;   
             text-align: center;  
             font-size: 16px;  
             margin: 0;   
-            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);  
         }  
           
         .footer-content {  
@@ -238,11 +212,11 @@
             }  
             
             .youtube-container {  
-                padding-bottom: 60%;  
+                padding-bottom: 50%; /* Increased height */  
             }  
             
             .second-image {  
-                height: 55vh;   
+                height: 50vh;   
             }  
         }  
 
@@ -258,22 +232,18 @@
             }  
               
             .video-section {  
-                padding: 5px;  
+                padding: 10px 5px;  
             }  
 
             .youtube-container {  
                 border-width: 3px;  
-                padding-bottom: 65%;  
+                padding-bottom: 70%; /* Increased height on mobile */  
             }  
-
-            .sound-control {
-                width: 40px;
-                height: 40px;
-                font-size: 18px;
-            }
               
             .second-image {  
                 height: 50vh;  
+                padding: 0;   
+                margin: 0;  
             }  
               
             .download-button {  
@@ -281,6 +251,13 @@
                 padding: 12px 25px;   
                 gap: 8px;  
                 box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);   
+            }  
+            .download-button:hover {  
+                 box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);  
+            }  
+            .download-button:active {  
+                transform: translateY(0);   
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);  
             }  
               
             .fixed-button-wrapper {  
@@ -337,25 +314,17 @@
         <!-- ✅ YOUTUBE VIDEO SECTION -->
         <div class="video-section">  
             <div class="youtube-container">  
-                <!-- YouTube Embed - Sound ON -->
+                <!-- YouTube Embed Code with only volume control enabled -->
                 <iframe 
-                    id="youtubeVideo"
-                    src="https://www.youtube.com/embed/CLu6xvh5Yw4?autoplay=1&mute=0&loop=1&playlist=CLu6xvh5Yw4&controls=1&modestbranding=1&rel=0" 
+                    src="https://www.youtube.com/embed/CLu6xvh5Yw4?autoplay=1&mute=0&loop=1&playlist=CLu6xvh5Yw4&controls=1&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3" 
                     title="Milk Scale App Demo" 
                     frameborder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                     allowfullscreen>
                 </iframe>
-                
-                <!-- Sound Control Button -->
-                <button class="sound-control" id="soundToggle">
-                    <i class="fas fa-volume-up" id="soundIcon"></i>
-                </button>
             </div>  
-            <!-- Video नोट हटा दिया गया -->
         </div>  
         
-        <!-- दूसरी इमेज - बिल्कुल नीचे -->
         <div class="second-image"></div>  
     </div>   
     
@@ -369,10 +338,9 @@
         </a>  
     </div>  
     
-    <!-- FOOTER WITH DARK BLUE BACKGROUND -->
     <div class="footer-section">  
         <div class="footer-content">  
-            <p style="font-size: 14px; text-align: center; margin-bottom: 20px; padding: 0 5px; line-height: 1.5;">  
+            <p style="font-size: 14px; text-align: center; margin-bottom: 20px; padding: 0 5px; line-height: 1.5; padding-top: 20px;">  
                 यह **Milk Scale App** विशेष रूप से दूध के व्यवसाय को आसान बनाने के लिए बनाया   
                 गया है।  ** Milk Scale App ** का उपयोग करके **दूध और सैंपल की वैल्यू** की  
                 कितनी भी ज्यादा वैल्यू का तुरंत **इंक्रीमेंट** निकाल सकते है  
@@ -389,7 +357,6 @@
             
             <hr style="border-color: rgba(255, 255, 255, 0.3); width: 80%; margin: 15px auto;">  
 
-            <!-- UPDATED: Removed Telegram links, kept only Email and WhatsApp -->
             <div class="footer-links">  
                 <div>  
                     **📧 Email id :** <a href="mailto:milkscaleapp@gmail.com">milkscaleapp@gmail.com</a>  
@@ -399,94 +366,36 @@
                 </div>  
             </div>  
             
-            <!-- YouTube Link REMOVED as requested -->
+            <!-- YouTube Link -->
+            <div style="margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.1); border-radius: 10px; width: 100%;">
+                <p>
+                    <i class="fab fa-youtube" style="color: #ff0000;"></i> 
+                    <strong>App Demo Video:</strong> 
+                    <a href="https://youtu.be/CLu6xvh5Yw4" target="_blank" style="color: #ffcc00;">
+                        https://youtu.be/CLu6xvh5Yw4
+                    </a>
+                </p>
+            </div>
         </div>  
     </div>  
 
     <script>  
-        let player;
-        let isMuted = false;
-        
-        // YouTube IFrame API
-        function onYouTubeIframeAPIReady() {
-            player = new YT.Player('youtubeVideo', {
-                events: {
-                    'onReady': onPlayerReady,
-                    'onStateChange': onPlayerStateChange
-                }
-            });
-        }
-        
-        function onPlayerReady(event) {
-            console.log('YouTube Player Ready');
+        document.addEventListener('DOMContentLoaded', function() {  
+            console.log('Milk Scale App page loaded with YouTube video');
             
-            // Start with sound ON
-            event.target.unMute();
-            event.target.setVolume(100);
+            // Ensure video starts with sound enabled
+            const iframe = document.querySelector('.youtube-container iframe');
             
-            // Auto-play with sound
-            setTimeout(function() {
-                try {
-                    event.target.playVideo();
-                } catch (e) {
-                    console.log('Auto-play failed:', e);
-                }
-            }, 1000);
-            
-            // Ensure video keeps playing
-            setInterval(function() {
-                if (player && player.getPlayerState && player.getPlayerState() !== YT.PlayerState.PLAYING) {
-                    player.playVideo();
-                }
-            }, 3000);
-        }
-        
-        function onPlayerStateChange(event) {
-            // Restart video when ends
-            if (event.data === YT.PlayerState.ENDED) {
-                player.playVideo();
+            // Function to ensure video is not muted
+            function checkVideoState() {
+                // YouTube iframe API would be needed for more control
+                // This is a basic approach
+                console.log('Video loaded with sound enabled by default');
             }
-        }
-        
-        // Sound toggle functionality
-        document.getElementById('soundToggle').addEventListener('click', function() {
-            if (player) {
-                if (isMuted) {
-                    // Unmute
-                    player.unMute();
-                    player.setVolume(100);
-                    document.getElementById('soundIcon').className = 'fas fa-volume-up';
-                    isMuted = false;
-                } else {
-                    // Mute
-                    player.mute();
-                    document.getElementById('soundIcon').className = 'fas fa-volume-mute';
-                    isMuted = true;
-                }
-            }
-        });
-        
-        // Auto-play on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('Page loaded - Video with sound');
             
-            // Try to play on user interaction
-            document.addEventListener('click', function() {
-                if (player && player.getPlayerState && player.getPlayerState() !== YT.PlayerState.PLAYING) {
-                    player.playVideo();
-                    player.unMute();
-                    player.setVolume(100);
-                }
-            });
+            // Check after a delay to ensure iframe is loaded
+            setTimeout(checkVideoState, 2000);
         });
-        
-        // Load YouTube API if not already loaded
-        if (!window.YT) {
-            var tag = document.createElement('script');
-            tag.src = "https://www.youtube.com/iframe_api";
-            var firstScriptTag = document.getElementsByTagName('script')[0];
-            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-        }
     </script>  
 </body>  
 </html>

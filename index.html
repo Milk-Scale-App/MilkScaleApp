@@ -61,12 +61,12 @@
             margin: 0;   
         }  
           
-        /* YOUTUBE VIDEO SECTION - HEIGHT INCREASED */
+        /* YOUTUBE VIDEO SECTION - FULL FRAME */
         .video-section {  
             width: 100%;  
             max-width: 1200px;  
             margin: 0 auto;  
-            padding: 15px 10px;  
+            padding: 5px 10px; /* कम padding */  
             background-color: #1956a8;  
             box-sizing: border-box;  
         }  
@@ -74,7 +74,7 @@
         .youtube-container {  
             position: relative;  
             width: 100%;  
-            padding-bottom: 70%; /* HEIGHT बढ़ाई गई (56.25% से 70%) */
+            padding-bottom: 65%; /* Height optimized */  
             height: 0;  
             overflow: hidden;  
             border: 4px solid black;  
@@ -92,13 +92,32 @@
             border: none;  
         }  
 
-        .video-note {  
-            color: white;  
-            margin-top: 10px;  
-            font-size: 14px;  
-        }  
+        /* Sound Control Button */
+        .sound-control {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 100;
+            font-size: 20px;
+            transition: all 0.3s;
+        }
 
-        /* दूसरी इमेज */  
+        .sound-control:hover {
+            background: rgba(0, 0, 0, 0.9);
+            transform: scale(1.1);
+        }
+
+        /* दूसरी इमेज - VIDEO के JUST नीचे */
         .second-image {  
             width: 100%;  
             height: 65vh;   
@@ -109,7 +128,7 @@
             display: block;  
             background-color: #1956a8;  
             padding: 0;   
-            margin: 0;   
+            margin: 0; /* No margin - बिल्कुल नीचे */  
         }  
           
         /* Fixed Button */  
@@ -151,19 +170,20 @@
             font-size: 28px;  
         }  
 
-        /* Footer */  
+        /* FOOTER - DARK BLUE BACKGROUND */
         .footer-section {  
             width: 100%;  
             height: auto;   
-            background-color: #1956a8;   
+            background-color: #0d2d5e; /* DARK BLUE BACKGROUND */  
             color: white;  
             display: flex;  
             justify-content: center;  
             align-items: center;  
-            padding: 0 10px 30px;   
+            padding: 30px 15px 40px;  
             text-align: center;  
             font-size: 16px;  
             margin: 0;   
+            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);  
         }  
           
         .footer-content {  
@@ -218,11 +238,11 @@
             }  
             
             .youtube-container {  
-                padding-bottom: 65%; /* Desktop पर भी height बढ़ाई */  
+                padding-bottom: 60%;  
             }  
             
             .second-image {  
-                height: 50vh;   
+                height: 55vh;   
             }  
         }  
 
@@ -238,18 +258,22 @@
             }  
               
             .video-section {  
-                padding: 10px 5px;  
+                padding: 5px;  
             }  
 
             .youtube-container {  
                 border-width: 3px;  
-                padding-bottom: 70%; /* Mobile पर भी same height */  
+                padding-bottom: 65%;  
             }  
+
+            .sound-control {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+            }
               
             .second-image {  
                 height: 50vh;  
-                padding: 0;   
-                margin: 0;  
             }  
               
             .download-button {  
@@ -257,13 +281,6 @@
                 padding: 12px 25px;   
                 gap: 8px;  
                 box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);   
-            }  
-            .download-button:hover {  
-                 box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);  
-            }  
-            .download-button:active {  
-                transform: translateY(0);   
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);  
             }  
               
             .fixed-button-wrapper {  
@@ -320,20 +337,25 @@
         <!-- ✅ YOUTUBE VIDEO SECTION -->
         <div class="video-section">  
             <div class="youtube-container">  
-                <!-- YouTube Embed Code -->
+                <!-- YouTube Embed - Sound ON -->
                 <iframe 
-                    src="https://www.youtube.com/embed/CLu6xvh5Yw4?autoplay=1&mute=1&loop=1&playlist=CLu6xvh5Yw4&controls=1&modestbranding=1&rel=0" 
+                    id="youtubeVideo"
+                    src="https://www.youtube.com/embed/CLu6xvh5Yw4?autoplay=1&mute=0&loop=1&playlist=CLu6xvh5Yw4&controls=1&modestbranding=1&rel=0" 
                     title="Milk Scale App Demo" 
                     frameborder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                     allowfullscreen>
                 </iframe>
+                
+                <!-- Sound Control Button -->
+                <button class="sound-control" id="soundToggle">
+                    <i class="fas fa-volume-up" id="soundIcon"></i>
+                </button>
             </div>  
-            <p class="video-note">
-                <i class="fas fa-info-circle"></i> Video automatically चलेगी (muted में)
-            </p>
+            <!-- Video नोट हटा दिया गया -->
         </div>  
         
+        <!-- दूसरी इमेज - बिल्कुल नीचे -->
         <div class="second-image"></div>  
     </div>   
     
@@ -347,9 +369,10 @@
         </a>  
     </div>  
     
+    <!-- FOOTER WITH DARK BLUE BACKGROUND -->
     <div class="footer-section">  
         <div class="footer-content">  
-            <p style="font-size: 14px; text-align: center; margin-bottom: 20px; padding: 0 5px; line-height: 1.5; padding-top: 20px;">  
+            <p style="font-size: 14px; text-align: center; margin-bottom: 20px; padding: 0 5px; line-height: 1.5;">  
                 यह **Milk Scale App** विशेष रूप से दूध के व्यवसाय को आसान बनाने के लिए बनाया   
                 गया है।  ** Milk Scale App ** का उपयोग करके **दूध और सैंपल की वैल्यू** की  
                 कितनी भी ज्यादा वैल्यू का तुरंत **इंक्रीमेंट** निकाल सकते है  
@@ -359,13 +382,14 @@
             </p>  
             <div class="main-text">  
                 <p class="line-fix">यदि App Download नहीं हो रहा है, तो आप हमें संपर्क करें:</p>  
-                <p class="line-fix">आप हमें **Email** कर सकते हैं या **Telegram/WhatsApp Group** में</p>  
+                <p class="line-fix">आप हमें **Email** कर सकते हैं या **WhatsApp Group** में</p>  
                 <p class="line-fix">**Direct Message** के माध्यम से अपनी समस्या बता सकते हैं।</p>  
                 <p class="line-fix">आपकी समस्या का समाधान **तुरंत** किया जाएगा।</p>  
             </div>  
             
             <hr style="border-color: rgba(255, 255, 255, 0.3); width: 80%; margin: 15px auto;">  
 
+            <!-- UPDATED: Removed Telegram links, kept only Email and WhatsApp -->
             <div class="footer-links">  
                 <div>  
                     **📧 Email id :** <a href="mailto:milkscaleapp@gmail.com">milkscaleapp@gmail.com</a>  
@@ -373,35 +397,96 @@
                 <div>  
                     **💬 Whatsapp group :** <a href="https://chat.whatsapp.com/FVhpiIlJQcjIz29OzwXor4?mode=wwt" target="_blank">[https://chat.whatsapp.com/FVhpiIlJQcjIz29OzwXor4?mode=wwt]</a>  
                 </div>  
-                <div>  
-                    **📢 Teligrame group :** <a href="https://t.me/milkscalegroup" target="_blank">[https://t.me/milkscalegroup]</a>  
-                </div>  
-                <div>  
-                    **📣 Telegram chanel :** <a href="https://t.me/milkscaleapp" target="_blank">[https://t.me/milkscaleapp]</a>  
-                </div>  
             </div>  
             
-            <!-- YouTube Link -->
-            <div style="margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.1); border-radius: 10px; width: 100%;">
-                <p>
-                    <i class="fab fa-youtube" style="color: #ff0000;"></i> 
-                    <strong>App Demo Video:</strong> 
-                    <a href="https://youtu.be/CLu6xvh5Yw4" target="_blank" style="color: #ffcc00;">
-                        https://youtu.be/CLu6xvh5Yw4
-                    </a>
-                </p>
-            </div>
+            <!-- YouTube Link REMOVED as requested -->
         </div>  
     </div>  
 
     <script>  
-        // YouTube video controls
-        document.addEventListener('DOMContentLoaded', function() {  
-            console.log('Milk Scale App page loaded with YouTube video');
+        let player;
+        let isMuted = false;
+        
+        // YouTube IFrame API
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('youtubeVideo', {
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
+        
+        function onPlayerReady(event) {
+            console.log('YouTube Player Ready');
             
-            // Optional: Add YouTube API for more control
-            // Note: Autoplay is already handled in iframe URL parameters
+            // Start with sound ON
+            event.target.unMute();
+            event.target.setVolume(100);
+            
+            // Auto-play with sound
+            setTimeout(function() {
+                try {
+                    event.target.playVideo();
+                } catch (e) {
+                    console.log('Auto-play failed:', e);
+                }
+            }, 1000);
+            
+            // Ensure video keeps playing
+            setInterval(function() {
+                if (player && player.getPlayerState && player.getPlayerState() !== YT.PlayerState.PLAYING) {
+                    player.playVideo();
+                }
+            }, 3000);
+        }
+        
+        function onPlayerStateChange(event) {
+            // Restart video when ends
+            if (event.data === YT.PlayerState.ENDED) {
+                player.playVideo();
+            }
+        }
+        
+        // Sound toggle functionality
+        document.getElementById('soundToggle').addEventListener('click', function() {
+            if (player) {
+                if (isMuted) {
+                    // Unmute
+                    player.unMute();
+                    player.setVolume(100);
+                    document.getElementById('soundIcon').className = 'fas fa-volume-up';
+                    isMuted = false;
+                } else {
+                    // Mute
+                    player.mute();
+                    document.getElementById('soundIcon').className = 'fas fa-volume-mute';
+                    isMuted = true;
+                }
+            }
         });
+        
+        // Auto-play on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Page loaded - Video with sound');
+            
+            // Try to play on user interaction
+            document.addEventListener('click', function() {
+                if (player && player.getPlayerState && player.getPlayerState() !== YT.PlayerState.PLAYING) {
+                    player.playVideo();
+                    player.unMute();
+                    player.setVolume(100);
+                }
+            });
+        });
+        
+        // Load YouTube API if not already loaded
+        if (!window.YT) {
+            var tag = document.createElement('script');
+            tag.src = "https://www.youtube.com/iframe_api";
+            var firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        }
     </script>  
 </body>  
 </html>

@@ -5,11 +5,11 @@
     <meta name="google-site-verification" content="Nk-fjvCQAfcGJv8xKUQh9nFHopDQ64xxjngUjoni5y8" />  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
     <title>Milk Scale - दूध और सैंपल से इंक्रीमेंट निकालने का ऐप डाउनलोड करें</title>  
-
+  
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4237674892461520" crossorigin="anonymous"></script>  
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">  
     <link rel="icon" type="image/png" href="favicon.png">   
-
+  
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-SKMPPCG6LG"></script>  
     <script>  
         window.dataLayer = window.dataLayer || [];  
@@ -92,6 +92,12 @@
             border: none;  
         }  
 
+        .video-note {  
+            color: white;  
+            margin-top: 10px;  
+            font-size: 14px;  
+        }  
+
         /* दूसरी इमेज */  
         .second-image {  
             width: 100%;  
@@ -149,7 +155,7 @@
         .footer-section {  
             width: 100%;  
             height: auto;   
-            background-color: #0a2b5e; /* Dark blue background */  
+            background-color: #1956a8;   
             color: white;  
             display: flex;  
             justify-content: center;  
@@ -212,7 +218,7 @@
             }  
             
             .youtube-container {  
-                padding-bottom: 50%; /* Increased height */  
+                padding-bottom: 40%; /* Desktop पर थोड़ा छोटा */  
             }  
             
             .second-image {  
@@ -237,7 +243,7 @@
 
             .youtube-container {  
                 border-width: 3px;  
-                padding-bottom: 70%; /* Increased height on mobile */  
+                padding-bottom: 56.25%; /* Mobile पर 16:9 maintain करें */  
             }  
               
             .second-image {  
@@ -314,15 +320,18 @@
         <!-- ✅ YOUTUBE VIDEO SECTION -->
         <div class="video-section">  
             <div class="youtube-container">  
-                <!-- YouTube Embed Code with only volume control enabled -->
+                <!-- YouTube Embed Code -->
                 <iframe 
-                    src="https://www.youtube.com/embed/CLu6xvh5Yw4?autoplay=1&mute=0&loop=1&playlist=CLu6xvh5Yw4&controls=1&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3" 
+                    src="https://www.youtube.com/embed/CLu6xvh5Yw4?autoplay=1&mute=1&loop=1&playlist=CLu6xvh5Yw4&controls=1&modestbranding=1&rel=0" 
                     title="Milk Scale App Demo" 
                     frameborder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                     allowfullscreen>
                 </iframe>
             </div>  
+            <p class="video-note">
+                <i class="fas fa-info-circle"></i> Video automatically चलेगी (muted में)
+            </p>
         </div>  
         
         <div class="second-image"></div>  
@@ -350,7 +359,7 @@
             </p>  
             <div class="main-text">  
                 <p class="line-fix">यदि App Download नहीं हो रहा है, तो आप हमें संपर्क करें:</p>  
-                <p class="line-fix">आप हमें **Email** कर सकते हैं या **WhatsApp Group** में</p>  
+                <p class="line-fix">आप हमें **Email** कर सकते हैं या **Telegram/WhatsApp Group** में</p>  
                 <p class="line-fix">**Direct Message** के माध्यम से अपनी समस्या बता सकते हैं।</p>  
                 <p class="line-fix">आपकी समस्या का समाधान **तुरंत** किया जाएगा।</p>  
             </div>  
@@ -363,6 +372,12 @@
                 </div>  
                 <div>  
                     **💬 Whatsapp group :** <a href="https://chat.whatsapp.com/FVhpiIlJQcjIz29OzwXor4?mode=wwt" target="_blank">[https://chat.whatsapp.com/FVhpiIlJQcjIz29OzwXor4?mode=wwt]</a>  
+                </div>  
+                <div>  
+                    **📢 Teligrame group :** <a href="https://t.me/milkscalegroup" target="_blank">[https://t.me/milkscalegroup]</a>  
+                </div>  
+                <div>  
+                    **📣 Telegram chanel :** <a href="https://t.me/milkscaleapp" target="_blank">[https://t.me/milkscaleapp]</a>  
                 </div>  
             </div>  
             
@@ -380,21 +395,12 @@
     </div>  
 
     <script>  
+        // YouTube video controls
         document.addEventListener('DOMContentLoaded', function() {  
             console.log('Milk Scale App page loaded with YouTube video');
             
-            // Ensure video starts with sound enabled
-            const iframe = document.querySelector('.youtube-container iframe');
-            
-            // Function to ensure video is not muted
-            function checkVideoState() {
-                // YouTube iframe API would be needed for more control
-                // This is a basic approach
-                console.log('Video loaded with sound enabled by default');
-            }
-            
-            // Check after a delay to ensure iframe is loaded
-            setTimeout(checkVideoState, 2000);
+            // Optional: Add YouTube API for more control
+            // Note: Autoplay is already handled in iframe URL parameters
         });
     </script>  
 </body>  
